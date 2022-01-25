@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBoundaries : MonoBehaviour
 {
     public float xLimit = 35f;
-    public float yLimit = 19.4f;
+    public float yLimit = 19.5f;
 
     // Update is called once per frame
     void Update()
