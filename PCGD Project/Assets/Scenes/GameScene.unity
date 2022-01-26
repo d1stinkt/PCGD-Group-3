@@ -1127,7 +1127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924907214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.552353, y: -8.076221, z: 51}
+  m_LocalPosition: {x: -14.552353, y: -8.076221, z: 50}
   m_LocalScale: {x: 35.5, y: 20.37, z: 1}
   m_Children: []
   m_Father: {fileID: 827643383}
@@ -1723,8 +1723,8 @@ GameObject:
   - component: {fileID: 1785712975}
   - component: {fileID: 1785712974}
   - component: {fileID: 1785712973}
-  - component: {fileID: 1785712978}
   - component: {fileID: 1785712977}
+  - component: {fileID: 1785712978}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1746,6 +1746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   rb: {fileID: 1785712974}
+  mainCamera: {fileID: 1428022355}
 --- !u!50 &1785712974
 Rigidbody2D:
   serializedVersion: 4
@@ -1845,7 +1846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xLimit: 35
-  yLimit: 20
+  yLimit: 19.4
 --- !u!114 &1785712978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1855,8 +1856,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1785712972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42cfe02194370de4eb982ca34f406fd5, type: 3}
+  m_Script: {fileID: 11500000, guid: d23973066e11eb94eb71d405b663b28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xLimit: 35
-  yLimit: 19.3
+  player: {fileID: 1785712976}
+  bulletPrefab: {fileID: 4221953489788236756, guid: 825fe1977c8777a40bf478f24de47f9f, type: 3}
+  bulletForce: 20
