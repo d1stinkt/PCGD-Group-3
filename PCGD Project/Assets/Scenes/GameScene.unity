@@ -468,6 +468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 391877178}
   - component: {fileID: 391877179}
+  - component: {fileID: 391877180}
   m_Layer: 0
   m_Name: EnemyYellow
   m_TagString: YellowEnemy
@@ -540,6 +541,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &391877180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391877177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b67c8512d5d21a4699faa6eb8c7bdd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1785712972}
+  enemySpeed: 5
 --- !u!1 &447809548
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567636173}
   - component: {fileID: 567636174}
+  - component: {fileID: 567636175}
   m_Layer: 0
   m_Name: EnemyGreen
   m_TagString: GreenEnemy
@@ -718,6 +734,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &567636175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567636172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b67c8512d5d21a4699faa6eb8c7bdd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1785712972}
+  enemySpeed: 5
 --- !u!1 &612694677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,6 +1305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1028533576}
   - component: {fileID: 1028533577}
+  - component: {fileID: 1028533578}
   m_Layer: 0
   m_Name: EnemyBlue
   m_TagString: BlueEnemy
@@ -1347,6 +1378,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1028533578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028533575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b67c8512d5d21a4699faa6eb8c7bdd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1785712972}
+  enemySpeed: 5
 --- !u!1 &1117848097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,6 +1792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1469356292}
   - component: {fileID: 1469356293}
+  - component: {fileID: 1469356294}
   m_Layer: 0
   m_Name: EnemyRed
   m_TagString: RedEnemy
@@ -1819,6 +1865,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1469356294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469356291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b67c8512d5d21a4699faa6eb8c7bdd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1785712972}
+  enemySpeed: 5
 --- !u!1 &1785712972
 GameObject:
   m_ObjectHideFlags: 0
