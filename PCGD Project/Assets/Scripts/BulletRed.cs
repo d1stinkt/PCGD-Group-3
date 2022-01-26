@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class BulletRed : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "RedEnemy")
         {
             Destroy(gameObject);
             Destroy(other.gameObject);

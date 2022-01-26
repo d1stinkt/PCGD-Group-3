@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4807294154244217966}
   - component: {fileID: 9104424984709561567}
   - component: {fileID: 696019434284291857}
-  - component: {fileID: 807329074046378138}
   - component: {fileID: 1123774421937290525}
+  - component: {fileID: -8158159894546278688}
   m_Layer: 0
   m_Name: BulletGreen
   m_TagString: Untagged
@@ -106,18 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &807329074046378138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5079263960264535022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d25f926e9529f246b20516a194bcbc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &1123774421937290525
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +122,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2.0000002}
   m_Direction: 0
+--- !u!114 &-8158159894546278688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5079263960264535022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1325a1e7b9d32f4f998d87cd28bd316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

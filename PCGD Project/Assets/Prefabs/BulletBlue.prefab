@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4493677005287933012}
   - component: {fileID: 194540667702306021}
   - component: {fileID: -773900049795641557}
-  - component: {fileID: -585896218409846624}
   - component: {fileID: 8318778653554205991}
+  - component: {fileID: -3025873441257229257}
   m_Layer: 0
   m_Name: BulletBlue
   m_TagString: Untagged
@@ -106,18 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-585896218409846624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4221953489788236756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d25f926e9529f246b20516a194bcbc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &8318778653554205991
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +122,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2.0000002}
   m_Direction: 0
+--- !u!114 &-3025873441257229257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221953489788236756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41c28ad650c014e43b8f47ba3811ae5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

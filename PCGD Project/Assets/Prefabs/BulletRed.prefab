@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2949482167910143872}
   - component: {fileID: 1441486952546580273}
   - component: {fileID: 7201426277094612223}
-  - component: {fileID: 7020108464249301876}
   - component: {fileID: 7331904269522974451}
+  - component: {fileID: -8890560086184985150}
   m_Layer: 0
   m_Name: BulletRed
   m_TagString: Untagged
@@ -106,18 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7020108464249301876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3181073362951151616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d25f926e9529f246b20516a194bcbc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &7331904269522974451
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +122,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2.0000002}
   m_Direction: 0
+--- !u!114 &-8890560086184985150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3181073362951151616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10539a68e24debe458f01b32aa0ad1d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

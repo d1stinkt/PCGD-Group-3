@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1715326636009673832}
   - component: {fileID: 3107917662867125465}
   - component: {fileID: 6687881801242648343}
-  - component: {fileID: 6795040612207274140}
   - component: {fileID: 6548394444552107291}
+  - component: {fileID: 7183453290415661028}
   m_Layer: 0
   m_Name: BulletYellow
   m_TagString: Untagged
@@ -106,18 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6795040612207274140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370725162031539176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d25f926e9529f246b20516a194bcbc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &6548394444552107291
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +122,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2.0000002}
   m_Direction: 0
+--- !u!114 &7183453290415661028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370725162031539176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eeb79ff43ba8a341934cab0263c3bb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
