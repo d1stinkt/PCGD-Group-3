@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public Transform player;
-    public GameObject bulletPrefab;
+    public Transform bulletStartpoint;
+    public GameObject bulletBlue;
+    public GameObject bulletRed;
+    public GameObject bulletGreen;
+    public GameObject bulletYellow;
 
     public float bulletForce = 20f;
 
@@ -20,8 +23,8 @@ public class Shooting : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, player.position, player.rotation);
+        GameObject bullet = Instantiate(bulletBlue, bulletStartpoint.position, bulletStartpoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(player.up * bulletForce, ForceMode2D.Impulse);
+        rb.AddForce(bulletStartpoint.transform.up * bulletForce, ForceMode2D.Impulse);
     }
 }
