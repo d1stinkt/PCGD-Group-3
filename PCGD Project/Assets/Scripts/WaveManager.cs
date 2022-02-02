@@ -79,6 +79,7 @@ public class WaveManager : MonoBehaviour
         }
 
         nextWave++;
+        currentWave++;
     }
 
     bool EnemiesLeft()
