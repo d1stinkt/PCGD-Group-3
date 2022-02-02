@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public GameObject player;
+    GameObject player;
 
     public float enemySpeed;
 
@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.Find("Player");
         enemySpeed = Random.Range(5f, 15f);
     }
 
