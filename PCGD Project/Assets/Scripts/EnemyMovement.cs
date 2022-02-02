@@ -8,6 +8,8 @@ public class EnemyMovement : MonoBehaviour
 
     public float enemySpeed;
 
+    public int ID;
+
     private void Start()
     {
         enemySpeed = Random.Range(5f, 15f);
