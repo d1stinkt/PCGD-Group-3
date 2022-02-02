@@ -103,7 +103,7 @@ public class WaveManager : MonoBehaviour
 
         for (int i = 0; i < _wave.numberOfEnemies; i++)
         {
-            SpawnEnemy(_wave.numberOfEnemies);
+            SpawnEnemy(_wave.numberOfEnemies);      //why not works???
 
             yield return new WaitForSeconds(_wave.spawnInterval);
         }
@@ -113,7 +113,7 @@ public class WaveManager : MonoBehaviour
         yield break;
     }
 
-    void SpawnEnemy(Wave typeOfEnemies)
+    void SpawnEnemy(Wave typeOfEnemies)     //this is just my idea of getting the enemies to spawn in right places... kinda complicated
     {
         GameObject blueEnemy = currentWave.typeOfEnemies[0];
         GameObject yellowEnemy = currentWave.typeOfEnemies[1];
