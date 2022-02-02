@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254421568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.058, y: 1.24, z: 0}
+  m_LocalPosition: {x: -0.058, y: 2.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1785712976}
@@ -1334,7 +1334,7 @@ MonoBehaviour:
   player: {fileID: 1785712976}
   centerPoint: {fileID: 1061500681}
   ColorID: 0
-  bulletForce: 0
+  bulletForce: 40
 --- !u!4 &1567353781
 Transform:
   m_ObjectHideFlags: 0
@@ -1489,7 +1489,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 6
 --- !u!212 &1785712975
 SpriteRenderer:
   m_ObjectHideFlags: 0
