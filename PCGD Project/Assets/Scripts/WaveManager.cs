@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    private int currentWave;
+    public int currentWave;
 
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
     public SpawnState state = SpawnState.COUNTING;
@@ -103,7 +103,7 @@ public class WaveManager : MonoBehaviour
 
         for (int i = 0; i < _wave.numberOfEnemies; i++)
         {
-            SpawnEnemy(_wave.numberOfEnemies);      //why not works???
+            SpawnEnemy(_wave);
 
             yield return new WaitForSeconds(_wave.spawnInterval);
         }
@@ -113,24 +113,24 @@ public class WaveManager : MonoBehaviour
         yield break;
     }
 
-    void SpawnEnemy(Wave typeOfEnemies)     //this is just my idea of getting the enemies to spawn in right places... kinda complicated
+    void SpawnEnemy(Wave _wave)
     {
-        GameObject blueEnemy = currentWave.typeOfEnemies[0];
-        GameObject yellowEnemy = currentWave.typeOfEnemies[1];
-        GameObject greenEnemy = currentWave.typeOfEnemies[2];
-        GameObject redEnemy = currentWave.typeOfEnemies[3];
+        GameObject blueEnemy = _wave.typeOfEnemies[0];
+        GameObject yellowEnemy = _wave.typeOfEnemies[1];
+        GameObject greenEnemy = _wave.typeOfEnemies[2];
+        GameObject redEnemy = _wave.typeOfEnemies[3];
 
         Transform blueSpawnPoint = spawnPoints[0];
         Transform yellowSpawnPoint = spawnPoints[1];
         Transform greenSpawnPoint = spawnPoints[2];
         Transform redSpawnPoint = spawnPoints[3];
 
-        Instantiate(blueEnemy, blueSpawnPoint.position);
-        Instantiate(yellowEnemy, yellowSpawnPoint.position);
-        Instantiate(greenEnemy, greenSpawnPoint.position);
-        Instantiate(redEnemy, redSpawnPoint.position);
+        Instantiate(blueEnemy, blueSpawnPoint.position, blueSpawnPoint.rotation);
+        Instantiate(yellowEnemy, yellowSpawnPoint.position, yellowSpawnPoint.rotation);
+        Instantiate(greenEnemy, greenSpawnPoint.position, greenSpawnPoint.rotation);
+        Instantiate(redEnemy, redSpawnPoint.position, redSpawnPoint.rotation);
 
-        currentWave.numberOfEnemies--;
+        _wave.numberOfEnemies--;
     }
 
 }
