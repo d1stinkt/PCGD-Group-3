@@ -14,7 +14,7 @@ public class WaveManager : MonoBehaviour
     public Transform[] spawnPoints;
 
     private float searchCD = 1f;    //timer for checking if enemies are alive
-    public float waveCD;
+    float waveCD;
     public float timeBetweenWaves = 1f;
 
     [System.Serializable]
@@ -50,6 +50,7 @@ public class WaveManager : MonoBehaviour
         }
         if (waveCD <= 0)
         {
+            Debug.Log("Wavecounter down");
             if (state != SpawnState.SPAWNING)
             {
                 StartCoroutine(SpawnWave(waves[nextWave]));
@@ -73,7 +74,7 @@ public class WaveManager : MonoBehaviour
 
         if (nextWave + 1 > waves.Length - 1)
         {
-            nextWave = 0;
+            nextWave--;
             Debug.Log("Waves done. Looping...");    //gamestate complete! 
         }
 
