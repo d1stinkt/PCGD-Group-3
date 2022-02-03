@@ -17,6 +17,8 @@ public class WaveManager : MonoBehaviour
     float waveCD;
     public float timeBetweenWaves = 1f;
 
+    public int waveEnemies;
+
     [System.Serializable]
     public class Wave
     {
@@ -24,6 +26,7 @@ public class WaveManager : MonoBehaviour
         public int numberOfEnemies;
         public float spawnInterval;
         public GameObject[] typeOfEnemies;
+
 
     }
 
@@ -68,7 +71,6 @@ public class WaveManager : MonoBehaviour
 
     void SpawnNextWave()
     {
-
         state = SpawnState.COUNTING;
         waveCD = timeBetweenWaves;
 
@@ -101,9 +103,10 @@ public class WaveManager : MonoBehaviour
 
     IEnumerator SpawnWave(Wave _wave)
     {
+        waveEnemies = _wave.numberOfEnemies; // Grabbing numberOfEnemies to a wave specific variable
         state = SpawnState.SPAWNING;
 
-        for (int i = 0; i < _wave.numberOfEnemies; i++)
+        for (int i = 0; i < waveEnemies; i++)
         {
             SpawnEnemy(_wave);
 
@@ -132,7 +135,7 @@ public class WaveManager : MonoBehaviour
         Instantiate(greenEnemy, greenSpawnPoint.position, greenSpawnPoint.rotation);
         Instantiate(redEnemy, redSpawnPoint.position, redSpawnPoint.rotation);
 
-        _wave.numberOfEnemies--;
+        waveEnemies--;
     }
 
 }
