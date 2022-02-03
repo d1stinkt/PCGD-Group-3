@@ -1493,6 +1493,14 @@ MonoBehaviour:
     - {fileID: 4203074380532295207, guid: 3e8bbeb0076e33a4a8ded833ba898bd5, type: 3}
     - {fileID: 8541158208353457626, guid: 12b672c76331c74449f8a858708fd1c8, type: 3}
     - {fileID: 5721011082319769036, guid: ef81f9491c87d054893153866000e5e3, type: 3}
+  - waveName: 
+    numberOfEnemies: 3
+    spawnInterval: 1
+    typeOfEnemies:
+    - {fileID: 8120466088445898626, guid: 7696a426a6f7d7f4693cb1b303768246, type: 3}
+    - {fileID: 4203074380532295207, guid: 3e8bbeb0076e33a4a8ded833ba898bd5, type: 3}
+    - {fileID: 8541158208353457626, guid: 12b672c76331c74449f8a858708fd1c8, type: 3}
+    - {fileID: 5721011082319769036, guid: ef81f9491c87d054893153866000e5e3, type: 3}
   spawnPoints:
   - {fileID: 2068026767}
   - {fileID: 607521624}
