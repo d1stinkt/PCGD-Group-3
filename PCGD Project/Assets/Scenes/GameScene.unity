@@ -1003,19 +1003,19 @@ MonoBehaviour:
   state: 2
   waves:
   - waveName: 
-    numberOfEnemies: 2
+    numberOfEnemies: 1
     spawnInterval: 1
   - waveName: 
     numberOfEnemies: 3
     spawnInterval: 1
   - waveName: 
-    numberOfEnemies: 4
+    numberOfEnemies: 5
     spawnInterval: 0.5
   - waveName: 
-    numberOfEnemies: 5
+    numberOfEnemies: 7
     spawnInterval: 1
   - waveName: 
-    numberOfEnemies: 6
+    numberOfEnemies: 9
     spawnInterval: 1
   spawnPoints:
   - {fileID: 2068026767}
