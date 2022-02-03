@@ -18,6 +18,7 @@ public class WaveManager : MonoBehaviour
     public float timeBetweenWaves = 1f;
 
     public int waveEnemies;
+    public GameObject[] typeOfEnemies;
 
     [System.Serializable]
     public class Wave
@@ -25,9 +26,6 @@ public class WaveManager : MonoBehaviour
         public string waveName;     //for future name announcement
         public int numberOfEnemies;
         public float spawnInterval;
-        public GameObject[] typeOfEnemies;
-
-
     }
 
     void Start()
@@ -120,20 +118,16 @@ public class WaveManager : MonoBehaviour
 
     void SpawnEnemy(Wave _wave)
     {
-        GameObject blueEnemy = _wave.typeOfEnemies[0];
-        GameObject yellowEnemy = _wave.typeOfEnemies[1];
-        GameObject greenEnemy = _wave.typeOfEnemies[2];
-        GameObject redEnemy = _wave.typeOfEnemies[3];
-
         Transform blueSpawnPoint = spawnPoints[0];
         Transform yellowSpawnPoint = spawnPoints[1];
         Transform greenSpawnPoint = spawnPoints[2];
         Transform redSpawnPoint = spawnPoints[3];
 
-        Instantiate(blueEnemy, blueSpawnPoint.position, blueSpawnPoint.rotation);
-        Instantiate(yellowEnemy, yellowSpawnPoint.position, yellowSpawnPoint.rotation);
-        Instantiate(greenEnemy, greenSpawnPoint.position, greenSpawnPoint.rotation);
-        Instantiate(redEnemy, redSpawnPoint.position, redSpawnPoint.rotation);
+        // Spawning random enemies to all of the spawn points
+        Instantiate(typeOfEnemies[Random.Range(0,4)], blueSpawnPoint.position, blueSpawnPoint.rotation);
+        Instantiate(typeOfEnemies[Random.Range(0,4)], redSpawnPoint.position, redSpawnPoint.rotation);
+        Instantiate(typeOfEnemies[Random.Range(0,4)], greenSpawnPoint.position, greenSpawnPoint.rotation);
+        Instantiate(typeOfEnemies[Random.Range(0,4)], yellowSpawnPoint.position, yellowSpawnPoint.rotation);
 
         waveEnemies--;
     }

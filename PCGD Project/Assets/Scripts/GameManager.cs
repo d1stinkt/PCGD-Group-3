@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
 
     public float bulletForce;
 
+    void Start()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     void Update()
     {
         centerPoint.LookAt(player);

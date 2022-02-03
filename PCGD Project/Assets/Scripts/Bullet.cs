@@ -49,10 +49,11 @@ public class Bullet : MonoBehaviour
             int enemyColor = collision.gameObject.GetComponent<EnemyMovement>().ID;
             if (enemyColor == color)
             {
+                Destroy(gameObject);
                 Destroy(collision.gameObject);
             }
         }
-        if (collision.tag != "Player")
+        if (collision.tag == "GameAreaBorder")
         {
             Destroy(gameObject);
         }
