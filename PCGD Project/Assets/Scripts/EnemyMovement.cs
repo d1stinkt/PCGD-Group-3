@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     GameObject player;
+    public PlayerMovement playerScript;
 
     public float enemySpeed;
     float rotationOffset = 270f;
@@ -15,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player");
-        enemySpeed = Random.Range(4f, 10f);
+        enemySpeed = Random.Range(5f, 10f);
         transform.localScale = new Vector3(scale, scale, scale);
     }
 
@@ -37,6 +38,15 @@ public class EnemyMovement : MonoBehaviour
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(Vector3.forward * (angle + rotationOffset));
-            
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            Destroy(collision.gameObject);
+            playerScript.alive = true;
+        }
     }
 }

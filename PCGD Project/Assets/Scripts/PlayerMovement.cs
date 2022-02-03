@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
+    public bool alive;
 
     public Rigidbody2D rb;
     public Camera mainCamera;
@@ -12,15 +13,25 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 mousePosition;
 
-    // Update is called once per frame
+    void Start()
+    {
+        alive = true;    
+    }
+
     void Update()
     {
-        PlayerInput();
+        if (alive)
+        {
+            PlayerInput();
+        }
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if (alive)
+        {
+            Move();
+        }
     }
 
 
