@@ -43,10 +43,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             Destroy(collision.gameObject);
-            playerScript.alive = true;
+            playerScript.alive = false;
         }
     }
 }
