@@ -52,6 +52,10 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
                 Destroy(collision.gameObject);
             }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
         if (collision.tag == "GameAreaBorder")
         {
