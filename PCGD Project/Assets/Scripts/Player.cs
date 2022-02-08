@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
 
     public int maxHealth = 100;
     public int currentHealth;
-
+    public float damageTimer = 2f;
+   
     public Rigidbody2D rb;
     public Camera mainCamera;
     public HealthBar healthBar;
@@ -34,6 +35,8 @@ public class Player : MonoBehaviour
         {
             PlayerInput();
         }
+
+        damageTimer = damageTimer - Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -69,20 +72,27 @@ public class Player : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" && currentHealth > 20)
+        if (collision.gameObject.tag == "Enemy")
         {
-            LoseHealth(20);
             Vector2 direction = transform.position - collision.transform.position;
             direction.Normalize();
             rb.AddForce(direction * bounce, ForceMode2D.Impulse);
             enemyHit = true;
             Invoke("StopBounce", 0.2f);
-        }
 
-        if (collision.gameObject.tag == "Enemy" && currentHealth == 20)
-        {
-            LoseHealth(20);
-            alive = false;
+            if (damageTimer < 0)
+            {
+                if (currentHealth > 20)
+                {
+                    LoseHealth(20);
+                    damageTimer = 2f;
+                }
+                else
+                {
+                    healthBar.SetHealth(0);
+                    alive = false;
+                }
+            }
         }
     }
 
