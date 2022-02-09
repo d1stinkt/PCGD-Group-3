@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,21 @@ public class GameManager : MonoBehaviour
     float[] location = { 0, 0 };
 
     public float bulletForce;
+
+    ScoreSystem scoreSystem;
+    public int score = 1;
+    int highScore;
+
+    [SerializeField]
+    Text scoreTxt, highScoreTxt;
+
+    void Start()
+    {
+        Application.targetFrameRate = 60;
+        scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
+        highScore = scoreSystem.LoadScore();
+        highScoreTxt.text = highScore.ToString();
+    }
 
     void Update()
     {
@@ -38,6 +54,16 @@ public class GameManager : MonoBehaviour
 
             default:
                 break;
+        }
+
+        scoreTxt.text = score.ToString();
+    }
+
+    public void GameOver()
+    {
+        if (score > highScore)
+        {
+            scoreSystem.SaveScore(score);
         }
     }
 }

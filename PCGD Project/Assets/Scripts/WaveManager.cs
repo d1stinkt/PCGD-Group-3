@@ -17,19 +17,23 @@ public class WaveManager : MonoBehaviour
     float waveCD;
     public float timeBetweenWaves = 1f;
 
+    public int waveEnemies;
+    public GameObject[] typeOfEnemies;
+
+    GameManager gm;
+
     [System.Serializable]
     public class Wave
     {
         public string waveName;     //for future name announcement
         public int numberOfEnemies;
         public float spawnInterval;
-        public GameObject[] typeOfEnemies;
-
     }
 
     void Start()
     {
         waveCD = timeBetweenWaves;
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
 
@@ -68,7 +72,6 @@ public class WaveManager : MonoBehaviour
 
     void SpawnNextWave()
     {
-
         state = SpawnState.COUNTING;
         waveCD = timeBetweenWaves;
 
@@ -80,6 +83,7 @@ public class WaveManager : MonoBehaviour
 
         nextWave++;
         currentWave++;
+        gm.score++;
     }
 
     bool EnemiesLeft()
@@ -101,9 +105,10 @@ public class WaveManager : MonoBehaviour
 
     IEnumerator SpawnWave(Wave _wave)
     {
+        waveEnemies = _wave.numberOfEnemies; // Grabbing numberOfEnemies to a wave specific variable
         state = SpawnState.SPAWNING;
 
-        for (int i = 0; i < _wave.numberOfEnemies; i++)
+        for (int i = 0; i < waveEnemies; i++)
         {
             SpawnEnemy(_wave);
 
@@ -117,22 +122,18 @@ public class WaveManager : MonoBehaviour
 
     void SpawnEnemy(Wave _wave)
     {
-        GameObject blueEnemy = _wave.typeOfEnemies[0];
-        GameObject yellowEnemy = _wave.typeOfEnemies[1];
-        GameObject greenEnemy = _wave.typeOfEnemies[2];
-        GameObject redEnemy = _wave.typeOfEnemies[3];
-
         Transform blueSpawnPoint = spawnPoints[0];
         Transform yellowSpawnPoint = spawnPoints[1];
         Transform greenSpawnPoint = spawnPoints[2];
         Transform redSpawnPoint = spawnPoints[3];
 
-        Instantiate(blueEnemy, blueSpawnPoint.position, blueSpawnPoint.rotation);
-        Instantiate(yellowEnemy, yellowSpawnPoint.position, yellowSpawnPoint.rotation);
-        Instantiate(greenEnemy, greenSpawnPoint.position, greenSpawnPoint.rotation);
-        Instantiate(redEnemy, redSpawnPoint.position, redSpawnPoint.rotation);
+        // Spawning random enemies to all of the spawn points
+        Instantiate(typeOfEnemies[Random.Range(0,4)], blueSpawnPoint.position, blueSpawnPoint.rotation);
+        Instantiate(typeOfEnemies[Random.Range(0,4)], redSpawnPoint.position, redSpawnPoint.rotation);
+        Instantiate(typeOfEnemies[Random.Range(0,4)], greenSpawnPoint.position, greenSpawnPoint.rotation);
+        Instantiate(typeOfEnemies[Random.Range(0,4)], yellowSpawnPoint.position, yellowSpawnPoint.rotation);
 
-        _wave.numberOfEnemies--;
+        waveEnemies--;
     }
 
 }

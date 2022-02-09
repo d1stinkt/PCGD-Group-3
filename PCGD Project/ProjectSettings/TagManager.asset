@@ -8,16 +8,13 @@ TagManager:
   - YellowArea
   - RedArea
   - GreenArea
-  - RedEnemy
-  - GreenEnemy
-  - BlueEnemy
-  - YellowEnemy
   - Enemy
+  - GameAreaBorder
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - 

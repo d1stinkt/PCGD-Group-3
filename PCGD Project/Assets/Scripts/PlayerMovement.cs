@@ -8,19 +8,26 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
     public Camera mainCamera;
+    public Player player;
 
     private Vector2 moveDirection;
     private Vector2 mousePosition;
 
-    // Update is called once per frame
+
     void Update()
     {
-        PlayerInput();
+        if (player.alive)
+        {
+            PlayerInput();
+        }
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if (player.alive)
+        {
+            Move();
+        }
     }
 
 
