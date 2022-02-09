@@ -94,6 +94,7 @@ public class Player : MonoBehaviour
                 {
                     healthBar.SetHealth(0);
                     alive = false;
+                    gm.GameOver();
                 }
             }
         }
