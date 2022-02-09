@@ -21,12 +21,15 @@ public class Player : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 mousePosition;
 
+    GameManager gm;
+
     void Start()
     {
         alive = true;
         // Setting health to max at the beginning
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
