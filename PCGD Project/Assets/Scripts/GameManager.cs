@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        scoreTxt.text = score.ToString();
+        scoreTxt.text = "Wave number: " + score.ToString();
     }
 
     public void GameOver()

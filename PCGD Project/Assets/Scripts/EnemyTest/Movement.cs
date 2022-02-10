@@ -5,11 +5,13 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private Rigidbody2D enemyRb;
-    private float enemySpd = 5f;
+    public float enemySpd = 10f;
     private int moveDir;
     private int curDir; // You can store your current direction here but I'm not using it in this code. This is how you would do it though
     private bool canChange;
     private Vector2 moveDirection;
+
+    //public Movement movement;
 
     private void Start()
     {
@@ -31,7 +33,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            StopMoving();
+            FollowPlayer();
         }
     }
 
@@ -193,34 +195,35 @@ public class Movement : MonoBehaviour
     void MoveLeft()
     {
         curDir = 2;
-        enemyRb.transform.GetChild(0).GetChild(0).eulerAngles = new Vector3(0, 0, -90);
+        enemyRb.transform.eulerAngles = new Vector3(0, 0, -90);
         moveDirection = Vector2.left;
     }
 
     void MoveRight()
     {
         curDir = 3;
-        enemyRb.transform.GetChild(0).GetChild(0).eulerAngles = new Vector3(0, 0, 90);
+        enemyRb.transform.eulerAngles = new Vector3(0, 0, 90);
         moveDirection = Vector2.right;
     }
 
     void MoveUp()
     {
         curDir = 4;
-        enemyRb.transform.GetChild(0).GetChild(0).eulerAngles = new Vector3(0, 0, 180);
+        enemyRb.transform.eulerAngles = new Vector3(0, 0, 180);
         moveDirection = Vector2.up;
     }
 
     void MoveDown()
     {
         curDir = 1;
-        enemyRb.transform.GetChild(0).GetChild(0).eulerAngles = new Vector3(0, 0, 0);
+        enemyRb.transform.eulerAngles = new Vector3(0, 0, 0);
         moveDirection = Vector2.down;
     }
 
-    void StopMoving()
+    void FollowPlayer()
     {
-        moveDirection = Vector2.zero;
+        //movement.Move();
+        //movement.Rotate();
     }
 
     void MovementHandler()
@@ -267,10 +270,10 @@ public class Movement : MonoBehaviour
     IEnumerator RandomMovement()
     {
         canChange = false;
-        var timer = Random.Range(0.5f, 2.5f);
+        var timer = Random.Range(1.5f, 5.5f);
         yield return new WaitForSeconds(timer);
         ChangeDirection();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         canChange = true;
     }
 

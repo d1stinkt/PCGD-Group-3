@@ -11,12 +11,11 @@ public class PlayerDetection : MonoBehaviour
     public static bool playerIsDetected;
 
     private int playerLayer = 1 << 8;
-    private Rigidbody2D enemyRb;
+    public Rigidbody2D enemyRb;
     private Vector3 facePlayer;
 
     private void Start()
     {
-        enemyRb = GetComponentInParent<Rigidbody2D>();
         playerIsDetected = false;
     }
 
