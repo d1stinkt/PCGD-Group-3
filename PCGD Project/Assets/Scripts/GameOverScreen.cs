@@ -13,4 +13,14 @@ public class GameOverScreen : MonoBehaviour
         gameObject.SetActive(true);
         scoreText.text = points.ToString() + " SCORE";
     }
+
+    public void RestartButton()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void MainMenuButton()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
