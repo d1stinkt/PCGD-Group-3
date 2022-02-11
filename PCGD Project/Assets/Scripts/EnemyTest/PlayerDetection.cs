@@ -44,8 +44,8 @@ public class PlayerDetection : MonoBehaviour
 
     void PlayersPosition()
     {
-        facePlayer = player.position - enemyRb.transform.GetChild(0).GetChild(0).position;
-        enemyRb.transform.GetChild(0).GetChild(0).up = -facePlayer;
+        facePlayer = player.position - enemyRb.transform.position;
+        enemyRb.transform.up = -facePlayer;
     }
 
     void PlayerIsDetected()

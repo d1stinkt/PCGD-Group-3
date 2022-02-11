@@ -270,10 +270,10 @@ public class Movement : MonoBehaviour
     IEnumerator RandomMovement()
     {
         canChange = false;
-        var timer = Random.Range(1.5f, 5.5f);
+        var timer = Random.Range(1.0f, 2.0f);
         yield return new WaitForSeconds(timer);
         ChangeDirection();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
         canChange = true;
     }
 
