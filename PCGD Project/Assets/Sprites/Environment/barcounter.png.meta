@@ -1,19 +1,7 @@
 fileFormatVersion: 2
-guid: 38402f622d3afac4488147eded8ce366
+guid: 2369e45e0098eea45b5fe740e8ff1408
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 2731795287329381114
-    second: enemies_pink
-  - first:
-      213: 3229708652140166120
-    second: enemies_yellow
-  - first:
-      213: 876784968147787122
-    second: enemies_green
-  - first:
-      213: 1961183383047197949
-    second: enemies_blue
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -53,12 +41,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 40
+  spritePixelsToUnits: 5
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -101,91 +89,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: enemies_pink
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 167
-        height: 214
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: afa9a54175949e520800000000000000
-      internalID: 2731795287329381114
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemies_yellow
-      rect:
-        serializedVersion: 2
-        x: 196
-        y: 0
-        width: 167
-        height: 214
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ebf1da48ea32dc20800000000000000
-      internalID: 3229708652140166120
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemies_green
-      rect:
-        serializedVersion: 2
-        x: 398
-        y: 0
-        width: 167
-        height: 214
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27dd9da7847fa2c00800000000000000
-      internalID: 876784968147787122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemies_blue
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 167
-        height: 214
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df45de565e5873b10800000000000000
-      internalID: 1961183383047197949
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
