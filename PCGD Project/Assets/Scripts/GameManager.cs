@@ -64,12 +64,12 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        GameOverScreen.ShowMenu();//score 
+
         if (score > highScore)
         {
             scoreSystem.SaveScore(score);
         }
-
-        GameOverScreen.ShowMenu(score);
 
     }
 }

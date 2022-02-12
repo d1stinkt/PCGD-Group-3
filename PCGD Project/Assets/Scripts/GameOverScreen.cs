@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
-    public Text scoreText;
+    //public Text scoreText;
 
-    public void ShowMenu(int points)
+    public void ShowMenu()//int points
     {
         gameObject.SetActive(true);
-        scoreText.text = points.ToString() + " SCORE";
+        //scoreText.text = points.ToString() + " SCORE";
+        //needs some more work to show points when dead since above doesn't work
     }
 
     public void RestartButton()
