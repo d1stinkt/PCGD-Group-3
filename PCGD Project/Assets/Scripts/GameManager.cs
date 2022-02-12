@@ -26,9 +26,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
-        scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
+        scoreSystem = GameObject.Find("Score").GetComponent<ScoreSystem>();
         highScore = scoreSystem.LoadScore();
-        highScoreTxt.text = highScore.ToString();
+        highScoreTxt.text = "Highscore: " + highScore.ToString();
     }
 
     void Update()
@@ -59,12 +59,12 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        scoreTxt.text = score.ToString();
+        scoreTxt.text = "Score: " + score.ToString();
     }
 
     public void GameOver()
     {
-        GameOverScreen.ShowMenu();//score 
+        GameOverScreen.ShowMenu(score);//score 
 
         if (score > highScore)
         {
