@@ -54,7 +54,7 @@ public class WaveManager : MonoBehaviour
         }
         if (waveCD <= 0)
         {
-            Debug.Log("Wavecounter down");
+            //Debug.Log("Wavecounter down");
             if (state != SpawnState.SPAWNING)
             {
                 StartCoroutine(SpawnWave(waves[nextWave]));

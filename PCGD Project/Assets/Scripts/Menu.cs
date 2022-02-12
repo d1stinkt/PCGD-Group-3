@@ -21,6 +21,14 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
+    public void Quit()
+    {
+        Debug.Log("Quit");
+
+        Application.Quit();
+    }
+
+
     public void GetScore()
     {
         score.text = Convert.ToString(scoreSystem.LoadScore());
