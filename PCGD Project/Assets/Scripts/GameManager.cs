@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
-        scoreSystem = GameObject.Find("Score").GetComponent<ScoreSystem>();
+        scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
         highScore = scoreSystem.LoadScore();
         highScoreTxt.text = "Highscore: " + highScore.ToString();
     }

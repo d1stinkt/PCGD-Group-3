@@ -10,11 +10,15 @@ public class Menu : MonoBehaviour
     [SerializeField]
     Text score;
 
-    [SerializeField]
     ScoreSystem scoreSystem;
 
     [SerializeField]
     int s;
+
+    private void Start()
+    {
+        scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
+    }
 
     public void Play()
     {
