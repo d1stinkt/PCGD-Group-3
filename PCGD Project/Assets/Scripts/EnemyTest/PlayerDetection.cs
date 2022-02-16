@@ -10,7 +10,7 @@ public class PlayerDetection : MonoBehaviour
 
     public static bool playerIsDetected;
 
-    private int playerLayer = 1 << 8;
+    private int playerLayer = 1 << 6;
     public Rigidbody2D enemyRb;
     private Vector3 facePlayer;
 

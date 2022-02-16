@@ -11,7 +11,7 @@ public class WallDetection : MonoBehaviour
     public bool wallDetectedDown, wallDetectedLeft, wallDetectedRight, wallDetectUp;
 
     public static bool pathOpenDown, pathOpenLeft, pathOpenRight, pathOpenUp;
-    private int wallLayer = 1 << 10;
+    private int wallLayer = 1 << 7;
 
     private void Update()
     {
@@ -20,10 +20,10 @@ public class WallDetection : MonoBehaviour
 
     void WallDetector()
     {
-        Debug.DrawLine(originPointDown.position, endPointDown.position, Color.green);
-        Debug.DrawLine(originPointLeft.position, endPointLeft.position, Color.green);
-        Debug.DrawLine(originPointRight.position, endPointRight.position, Color.green);
-        Debug.DrawLine(originPointUp.position, endPointUp.position, Color.green);
+        Debug.DrawLine(originPointDown.position, endPointDown.position, Color.black);
+        Debug.DrawLine(originPointLeft.position, endPointLeft.position, Color.black);
+        Debug.DrawLine(originPointRight.position, endPointRight.position, Color.black);
+        Debug.DrawLine(originPointUp.position, endPointUp.position, Color.black);
         wallDetectedDown = Physics2D.Linecast(originPointDown.position, endPointDown.position, wallLayer);
         wallDetectedLeft = Physics2D.Linecast(originPointLeft.position, endPointLeft.position, wallLayer);
         wallDetectedRight = Physics2D.Linecast(originPointRight.position, endPointRight.position, wallLayer);

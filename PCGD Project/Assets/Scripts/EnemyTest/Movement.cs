@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     private int curDir; // You can store your current direction here but I'm not using it in this code. This is how you would do it though
     private bool canChange;
     private Vector2 moveDirection;
+    public Transform player;
+    private Vector2 playerPos;
 
     //public Movement movement;
 
@@ -39,7 +41,10 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        enemyRb.MovePosition(enemyRb.position + (moveDirection * enemySpd) * Time.fixedDeltaTime);
+        if(PlayerDetection.playerIsDetected == false)
+        {
+            enemyRb.MovePosition(enemyRb.position + (moveDirection * enemySpd) * Time.fixedDeltaTime);
+        }
     }
 
     void ChangeDirection()
@@ -222,8 +227,8 @@ public class Movement : MonoBehaviour
 
     void FollowPlayer()
     {
-        //movement.Move();
-        //movement.Rotate();
+        playerPos = new Vector2(playerPos.x, playerPos.y);
+        enemyRb.MovePosition(playerPos * enemySpd * Time.deltaTime);
     }
 
     void MovementHandler()
@@ -270,10 +275,10 @@ public class Movement : MonoBehaviour
     IEnumerator RandomMovement()
     {
         canChange = false;
-        var timer = Random.Range(1.0f, 2.0f);
+        var timer = Random.Range(1.0f, 1.5f);
         yield return new WaitForSeconds(timer);
         ChangeDirection();
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.5f);
         canChange = true;
     }
 
