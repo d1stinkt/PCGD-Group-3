@@ -11,7 +11,6 @@ public class Movement : MonoBehaviour
     private bool canChange;
     private Vector2 moveDirection;
     public Transform player;
-    private Vector2 playerPos;
 
     //public Movement movement;
 
@@ -44,6 +43,10 @@ public class Movement : MonoBehaviour
         if(PlayerDetection.playerIsDetected == false)
         {
             enemyRb.MovePosition(enemyRb.position + (moveDirection * enemySpd) * Time.fixedDeltaTime);
+        }
+        else
+        {
+            FollowPlayer();
         }
     }
 
@@ -227,8 +230,7 @@ public class Movement : MonoBehaviour
 
     void FollowPlayer()
     {
-        playerPos = new Vector2(playerPos.x, playerPos.y);
-        enemyRb.MovePosition(playerPos * enemySpd * Time.deltaTime);
+        enemyRb.transform.position = Vector2.MoveTowards(enemyRb.position, player.position, 0.2f);
     }
 
     void MovementHandler()
@@ -278,7 +280,7 @@ public class Movement : MonoBehaviour
         var timer = Random.Range(1.0f, 1.5f);
         yield return new WaitForSeconds(timer);
         ChangeDirection();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3.0f);
         canChange = true;
     }
 
