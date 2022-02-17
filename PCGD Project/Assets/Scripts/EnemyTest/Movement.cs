@@ -31,17 +31,6 @@ public class Movement : MonoBehaviour
         if (PlayerDetection.playerIsDetected == false)
         {
             MovementHandler();
-        }
-        else
-        {
-            FollowPlayer();
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if(PlayerDetection.playerIsDetected == false)
-        {
             enemyRb.MovePosition(enemyRb.position + (moveDirection * enemySpd) * Time.fixedDeltaTime);
         }
         else
@@ -49,6 +38,7 @@ public class Movement : MonoBehaviour
             FollowPlayer();
         }
     }
+
 
     void ChangeDirection()
     {
@@ -159,7 +149,7 @@ public class Movement : MonoBehaviour
                                                                                                    WallDetection.pathOpenUp == false)
         {
             moveDir = Random.Range(1, 5); // 1 = down 2 = left 3 = right 4 = up
-            while (moveDir < 1 || moveDir > 2)
+            while (!(moveDir == 1) && !(moveDir == 2))
             {
                 moveDir = Random.Range(1, 5);
             }
@@ -277,10 +267,10 @@ public class Movement : MonoBehaviour
     IEnumerator RandomMovement()
     {
         canChange = false;
-        var timer = Random.Range(0.5f, 1.0f);
+        var timer = Random.Range(1.0f, 2.0f);
         yield return new WaitForSeconds(timer);
         ChangeDirection();
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         canChange = true;
     }
 
