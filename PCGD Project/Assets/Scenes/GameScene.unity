@@ -2074,7 +2074,7 @@ GameObject:
   - component: {fileID: 685801619}
   - component: {fileID: 685801620}
   m_Layer: 3
-  m_Name: Controller
+  m_Name: RadarControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2125,7 +2125,7 @@ MonoBehaviour:
   origin: {fileID: 2060866325}
   end: {fileID: 630159152}
   player: {fileID: 1785712976}
-  radarSpd: 200
+  radarSpd: 275
   playerDetected: 0
   enemyRb: {fileID: 452958639}
 --- !u!1 &725666521
