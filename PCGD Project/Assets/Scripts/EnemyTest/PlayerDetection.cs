@@ -21,9 +21,9 @@ public class PlayerDetection : MonoBehaviour
 
     private void Update()
     {
-        PlayerDetector();
         if (playerDetected == false)
         {
+            PlayerDetector();
             Radar();
         }
         else { PlayerIsDetected(); }

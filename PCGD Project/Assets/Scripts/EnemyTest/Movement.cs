@@ -86,7 +86,7 @@ public class Movement : MonoBehaviour
                                                                                                       WallDetection.pathOpenUp == true)
         {
             moveDir = Random.Range(1, 5);
-            while (moveDir < 1 || moveDir > 4 || moveDir == 2 || moveDir == 3)
+            while (!(moveDir == 1) && !(moveDir == 4))
             {
                 moveDir = Random.Range(1, 5);
             }// End of While Loop
@@ -104,7 +104,7 @@ public class Movement : MonoBehaviour
                                                                                                       WallDetection.pathOpenUp == true)
         {
             moveDir = Random.Range(1, 5);// 1-4  -- 1=down 2=left 3=right 4=up
-            while (moveDir < 3 || moveDir > 4) // can only be 3 or 4
+            while (!(moveDir == 3) &&  !(moveDir == 4)) // can only be 3 or 4
             {
                 moveDir = Random.Range(1, 5);
             }
@@ -126,7 +126,7 @@ public class Movement : MonoBehaviour
                                                                                                       WallDetection.pathOpenUp == true)
         {
             moveDir = Random.Range(1, 5); // 1 = down 2 = left 3 = right 4 = up
-            while (moveDir < 1 || moveDir > 4 || moveDir == 1 || moveDir == 3)
+            while (!(moveDir == 2) && !(moveDir == 4))
             {
                 moveDir = Random.Range(1, 5);
             }
@@ -170,7 +170,7 @@ public class Movement : MonoBehaviour
                                                                                                    WallDetection.pathOpenUp == false)
         {
             moveDir = Random.Range(1, 5);
-            while (moveDir < 1 || moveDir > 3)
+            while (!(moveDir == 1) && !(moveDir == 3))
             {
                 moveDir = Random.Range(1, 5);
             }
@@ -277,10 +277,10 @@ public class Movement : MonoBehaviour
     IEnumerator RandomMovement()
     {
         canChange = false;
-        var timer = Random.Range(1.0f, 1.5f);
+        var timer = Random.Range(0.5f, 1.0f);
         yield return new WaitForSeconds(timer);
         ChangeDirection();
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1.0f);
         canChange = true;
     }
 

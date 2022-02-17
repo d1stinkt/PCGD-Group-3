@@ -167,7 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 83508736}
   m_Layer: 3
-  m_Name: EndDown
+  m_Name: EndUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -927,7 +927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 323734142}
   m_Layer: 3
-  m_Name: Right
+  m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1286,6 +1286,10 @@ PrefabInstance:
       value: EnemyBlue
       objectReference: {fileID: 0}
     - target: {fileID: 8120466088445898636, guid: 7696a426a6f7d7f4693cb1b303768246, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8120466088445898636, guid: 7696a426a6f7d7f4693cb1b303768246, type: 3}
       propertyPath: m_FlipY
       value: 1
       objectReference: {fileID: 0}
@@ -1389,14 +1393,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25bc8952eee01c0439431420d3b53257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPointDown: {fileID: 1173663124}
-  endPointDown: {fileID: 83508736}
-  originPointLeft: {fileID: 951803737}
-  endPointLeft: {fileID: 1609435012}
-  originPointRight: {fileID: 323734142}
-  endPointRight: {fileID: 515184802}
-  originPointUp: {fileID: 1655940538}
-  endPointUp: {fileID: 872064657}
+  originPointDown: {fileID: 1655940538}
+  endPointDown: {fileID: 872064657}
+  originPointLeft: {fileID: 323734142}
+  endPointLeft: {fileID: 515184802}
+  originPointRight: {fileID: 951803737}
+  endPointRight: {fileID: 1609435012}
+  originPointUp: {fileID: 1173663124}
+  endPointUp: {fileID: 83508736}
   wallDetectedDown: 0
   wallDetectedLeft: 0
   wallDetectedRight: 0
@@ -1621,7 +1625,7 @@ GameObject:
   m_Component:
   - component: {fileID: 515184802}
   m_Layer: 3
-  m_Name: EndRight
+  m_Name: EndLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2281,7 +2285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 872064657}
   m_Layer: 3
-  m_Name: EndUp
+  m_Name: EndDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2501,7 +2505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 951803737}
   m_Layer: 3
-  m_Name: Left
+  m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2736,7 +2740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1173663124}
   m_Layer: 3
-  m_Name: Down
+  m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3360,7 +3364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1609435012}
   m_Layer: 3
-  m_Name: EndLeft
+  m_Name: EndRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3390,7 +3394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1655940538}
   m_Layer: 3
-  m_Name: Up
+  m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
