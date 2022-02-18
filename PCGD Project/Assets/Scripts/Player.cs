@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     public int maxHealth = 100;
     public int currentHealth;
-    public float damageTimer = 2f;
+    public float damageTimer = 0.5f;
    
     public Rigidbody2D rb;
     public Camera mainCamera;
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
                 if (currentHealth > 20)
                 {
                     LoseHealth(20);
-                    damageTimer = 2f;
+                    damageTimer = 0.5f;
                 }
                 else
                 {
