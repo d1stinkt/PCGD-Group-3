@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 32396047}
   - component: {fileID: 32396046}
+  - component: {fileID: 32396048}
   m_Layer: 0
   m_Name: barcounter
   m_TagString: Untagged
@@ -205,6 +206,32 @@ Transform:
   m_Father: {fileID: 1546357956}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &32396048
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32396045}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 27.8, y: 50.2}
+    newSize: {x: 27.8, y: 50.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 27.8, y: 50.2}
+  m_EdgeRadius: 0
 --- !u!1 &39346858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,6 +1427,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 937234476390834813, guid: 17693ada552597447832cbb9a3b9731c, type: 3}
   m_PrefabInstance: {fileID: 956463372}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1023769615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5409948803231841811, guid: 2289d736333a93c4bbbde5e4a4e33cb9, type: 3}
+  m_PrefabInstance: {fileID: 5409948801521758047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &1023769616
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023769615}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.02652669, y: -0.63664675}
+  m_Size: {x: 6.1835933, y: 8.448863}
+  m_Direction: 0
+--- !u!61 &1023769617
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023769615}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.053054094, y: -0.6366472}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.6, y: 7.6}
+    newSize: {x: 0.28, y: 0.38}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.9633527, y: 5.583951}
+  m_EdgeRadius: 0
 --- !u!1001 &1044257989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1590,7 +1664,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374191021}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -66.1, y: -34.9, z: 0}
+  m_LocalPosition: {x: -64.4, y: -22.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 39346859}
@@ -2095,6 +2169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1704716739}
   - component: {fileID: 1704716738}
+  - component: {fileID: 1704716740}
   m_Layer: 0
   m_Name: toilets
   m_TagString: Untagged
@@ -2167,6 +2242,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1704716740
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704716737}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 32, y: 11.2}
+    newSize: {x: 32, y: 11.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 32, y: 11.2}
+  m_EdgeRadius: 0
 --- !u!1 &1730157095
 GameObject:
   m_ObjectHideFlags: 0
@@ -2570,5 +2671,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5409948803231841804, guid: 2289d736333a93c4bbbde5e4a4e33cb9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2289d736333a93c4bbbde5e4a4e33cb9, type: 3}
