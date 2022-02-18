@@ -10,10 +10,17 @@ public class Shooting : MonoBehaviour
     GameObject bullet;
 
     void Update()
-    {
+    {   
+        
+
         if(Input.GetButtonDown("Fire1"))
         {
-            Instantiate(bullet, shootPoint.position, shootPoint.rotation);
+            if (Time.timeScale > 0)
+            {
+                Instantiate(bullet, shootPoint.position, shootPoint.rotation);
+            }
+            
+            
         }
     }
 }

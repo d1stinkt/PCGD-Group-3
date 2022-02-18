@@ -11,8 +11,7 @@ public class GameOverScreen : MonoBehaviour
     public void ShowMenu(int points)
     {
         gameObject.SetActive(true);
-        scoreText.text = "SCORE: " + points.ToString();
-        
+        scoreText.text = "SCORE: " + points.ToString();   
     }
 
     public void RestartButton()
@@ -24,4 +23,5 @@ public class GameOverScreen : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+
 }

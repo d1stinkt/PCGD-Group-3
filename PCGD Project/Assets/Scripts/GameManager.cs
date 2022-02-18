@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     Text scoreTxt, highScoreTxt;
 
     public GameOverScreen GameOverScreen;
+    public PauseMenuScreen PauseMenuScreen;
+
+    
 
     void Start()
     {
@@ -29,7 +32,10 @@ public class GameManager : MonoBehaviour
         scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
         highScore = scoreSystem.LoadScore();
         highScoreTxt.text = "Highscore: " + highScore.ToString();
+        
     }
+
+
 
     void Update()
     {
@@ -59,12 +65,19 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            Time.timeScale = 0f;
+            PauseMenuScreen.ShowPauseMenu(score);
+
+        }
+
         scoreTxt.text = "Score: " + score.ToString();
     }
 
     public void GameOver()
     {
-        GameOverScreen.ShowMenu(score);//score 
+        GameOverScreen.ShowMenu(score);
 
         if (score > highScore)
         {
@@ -72,4 +85,11 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+
+}
+
+public class Global
+{
+    public static bool GamePaused;
 }
