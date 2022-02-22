@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     GameObject player;
+    Rigidbody2D enemyRb;
 
     public float enemySpeed;
     float rotationOffset = 270f;
@@ -14,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
+        enemyRb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
         enemySpeed = Random.Range(5f, 10f);
         transform.localScale = new Vector3(scale, scale, scale);
@@ -28,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
+        enemyRb.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpeed * Time.deltaTime);
     }
 
     void Rotate()
@@ -36,6 +38,6 @@ public class EnemyMovement : MonoBehaviour
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(Vector3.forward * (angle + rotationOffset));
+        enemyRb.transform.rotation = Quaternion.Euler(Vector3.forward * (angle + rotationOffset));
     }
 }

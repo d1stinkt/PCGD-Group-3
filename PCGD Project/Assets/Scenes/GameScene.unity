@@ -1229,6 +1229,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1785712976}
+    - target: {fileID: 2110944417328176598, guid: 7696a426a6f7d7f4693cb1b303768246, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8120466088445898626, guid: 7696a426a6f7d7f4693cb1b303768246, type: 3}
       propertyPath: m_Name
       value: EnemyBlue

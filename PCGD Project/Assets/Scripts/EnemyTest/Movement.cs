@@ -221,7 +221,7 @@ public class Movement : MonoBehaviour
         moveDirection = Vector2.down;
     }
 
-    void FollowPlayer()
+    void FollowPlayer() // NOT USED
     {
         enemyRb.transform.position = Vector2.MoveTowards(enemyRb.position, player.position, 0.2f); 
     }
@@ -270,10 +270,10 @@ public class Movement : MonoBehaviour
     IEnumerator RandomMovement()
     {
         canChange = false;
-        var timer = Random.Range(1.0f, 2.0f);
+        var timer = Random.Range(1.0f, 4.0f);
         yield return new WaitForSeconds(timer);
         ChangeDirection();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         canChange = true;
     }
 
@@ -287,9 +287,11 @@ public class Movement : MonoBehaviour
             }
         }
     }
+
+    // These two are used to move enemy towards player once detected
     void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpd * Time.deltaTime);
+        enemyRb.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpd * Time.deltaTime);
     }
 
     void Rotate()
@@ -297,6 +299,6 @@ public class Movement : MonoBehaviour
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(Vector3.forward * (angle + rotationOffset));
+        enemyRb.transform.rotation = Quaternion.Euler(Vector3.forward * (angle + rotationOffset));
     }
 }

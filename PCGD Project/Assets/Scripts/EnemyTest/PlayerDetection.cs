@@ -47,7 +47,7 @@ public class PlayerDetection : MonoBehaviour
         playerIsDetected = false;
     }
 
-    void PlayersPosition() // Turning the enemy towards player
+    void PlayersPosition() // Turning the enemy towards player, NOT USED
     {
         Vector2 direction = player.position - transform.position;
         direction.Normalize();
