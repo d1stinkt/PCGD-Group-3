@@ -5,10 +5,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float moveSpeed;
+    public float powerSpeed;
     public float bounce; // Value of bounce when colliding with enemy
 
     public bool alive;  // True as long as player got health left
     public bool enemyHit;   // Boolean to switch off RigidBody manipulation for the time of bounce when colliding with an enemy
+
+    public bool powerupSpeed;
+    public bool powerupImmortality;
 
     public int maxHealth = 100;
     public int currentHealth;
@@ -67,36 +71,56 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        if (powerupSpeed)
+        {
+            rb.velocity = new Vector2(moveDirection.x * powerSpeed, moveDirection.y * powerSpeed);
+        }
+        else { rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed); }
+        
 
         Vector2 lookDirection = mousePosition - rb.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
     }
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
-            Vector2 direction = transform.position - collision.transform.position;
-            direction.Normalize();
-            rb.AddForce(direction * bounce, ForceMode2D.Impulse);
-            enemyHit = true;
-            Invoke("StopBounce", 0.2f);
-
-            if (damageTimer < 0)
+            if (!powerupImmortality)
             {
-                if (currentHealth > 20)
+                Vector2 direction = transform.position - other.transform.position;
+                direction.Normalize();
+                rb.AddForce(direction * bounce, ForceMode2D.Impulse);
+                enemyHit = true;
+                Invoke("StopBounce", 0.2f);
+
+                if (damageTimer < 0)
                 {
-                    LoseHealth(20);
-                    damageTimer = 2f;
-                }
-                else
-                {
-                    healthBar.SetHealth(0);
-                    alive = false;
-                    gm.GameOver();
+                    if (currentHealth > 20)
+                    {
+                        LoseHealth(20);
+                        damageTimer = 2f;
+                    }
+                    else
+                    {
+                        healthBar.SetHealth(0);
+                        alive = false;
+                        gm.GameOver();
+                    }
                 }
             }
+        }
+
+        if (other.gameObject.tag == "Speed")
+        {
+            Destroy(other.gameObject);
+            StartCoroutine(SpeedPowerUp());
+        }
+
+        if (other.gameObject.tag == "Immortality")
+        {
+            Destroy(other.gameObject);
+            StartCoroutine(ImmortalityPowerUp());
         }
     }
 
@@ -109,5 +133,19 @@ public class Player : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+    }
+
+    IEnumerator SpeedPowerUp()
+    {
+        powerupSpeed = true;
+        yield return new WaitForSeconds(5f);
+        powerupSpeed = false;
+    }
+
+    IEnumerator ImmortalityPowerUp()
+    {
+        powerupImmortality = true;
+        yield return new WaitForSeconds(5f);
+        powerupImmortality = false;
     }
 }
