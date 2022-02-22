@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private bool GameIsPaused;
+
     public float moveSpeed;
     public float bounce; // Value of bounce when colliding with enemy
 
@@ -12,7 +14,7 @@ public class Player : MonoBehaviour
 
     public int maxHealth = 100;
     public int currentHealth;
-    public float damageTimer = 2f;
+    public float damageTimer = 0.5f;
    
     public Rigidbody2D rb;
     public Camera mainCamera;
@@ -30,6 +32,7 @@ public class Player : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        GameIsPaused = Global.GamePaused;
     }
 
     void Update()
@@ -40,6 +43,7 @@ public class Player : MonoBehaviour
         }
 
         damageTimer = damageTimer - Time.deltaTime;
+
     }
 
     private void FixedUpdate()
@@ -88,7 +92,7 @@ public class Player : MonoBehaviour
                 if (currentHealth > 20)
                 {
                     LoseHealth(20);
-                    damageTimer = 2f;
+                    damageTimer = 0.5f;
                 }
                 else
                 {

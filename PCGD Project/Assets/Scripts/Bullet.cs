@@ -33,7 +33,7 @@ public class Bullet : MonoBehaviour
                 break;
 
             case 2:
-                sr.color =new Color(0,0.5f,0,1);
+                sr.color = new Color(0, 0.5f, 0, 1);
                 break;
 
             case 3:

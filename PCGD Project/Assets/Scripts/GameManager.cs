@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -20,13 +21,21 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Text scoreTxt, highScoreTxt;
 
+    public GameOverScreen GameOverScreen;
+    public PauseMenuScreen PauseMenuScreen;
+
+    
+
     void Start()
     {
         Application.targetFrameRate = 60;
         scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
         highScore = scoreSystem.LoadScore();
-        highScoreTxt.text = highScore.ToString();
+        highScoreTxt.text = "Highscore: " + highScore.ToString();
+        
     }
+
+
 
     void Update()
     {
@@ -56,14 +65,31 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        scoreTxt.text = score.ToString();
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            Time.timeScale = 0f;
+            PauseMenuScreen.ShowPauseMenu(score);
+
+        }
+
+        scoreTxt.text = "Score: " + score.ToString();
     }
 
     public void GameOver()
     {
+        GameOverScreen.ShowMenu(score);
+
         if (score > highScore)
         {
             scoreSystem.SaveScore(score);
         }
+
     }
+
+
+}
+
+public class Global
+{
+    public static bool GamePaused;
 }
