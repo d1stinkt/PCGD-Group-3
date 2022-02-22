@@ -10,13 +10,15 @@ public class Movement : MonoBehaviour
     private int curDir; // You can store your current direction here but I'm not using it in this code. This is how you would do it though
     private bool canChange;
     private Vector2 moveDirection;
-    public Transform player;
+    float rotationOffset = 90f;
+    Transform player;
 
     //public Movement movement;
 
     private void Start()
     {
         enemyRb = GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player").GetComponent<Transform>();
         moveDir = Random.Range(1, 5); // 1-4  -- 1=down 2=left 3=right 4=up
         if (moveDir < 1 || moveDir > 4)
         {
@@ -35,7 +37,8 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            FollowPlayer();
+            Move();
+            Rotate();
         }
     }
 
@@ -220,7 +223,7 @@ public class Movement : MonoBehaviour
 
     void FollowPlayer()
     {
-        enemyRb.transform.position = Vector2.MoveTowards(enemyRb.position, player.position, 0.2f);
+        enemyRb.transform.position = Vector2.MoveTowards(enemyRb.position, player.position, 0.2f); 
     }
 
     void MovementHandler()
@@ -276,9 +279,24 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "GameAreaBorder")
+        if (PlayerDetection.playerIsDetected == false)
         {
-            ChangeDirection();
+            if (collision.gameObject.tag == "GameAreaBorder")
+            {
+                ChangeDirection();
+            }
         }
+    }
+    void Move()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemySpd * Time.deltaTime);
+    }
+
+    void Rotate()
+    {
+        Vector2 direction = player.transform.position - transform.position;
+        direction.Normalize();
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(Vector3.forward * (angle + rotationOffset));
     }
 }

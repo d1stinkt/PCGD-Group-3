@@ -166,11 +166,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 15
-  powerSpeed: 20
+  powerSpeed: 25
   bounce: 25
   alive: 0
   enemyHit: 0
   powerupSpeed: 0
+  powerupImmortality: 0
   maxHealth: 100
   currentHealth: 0
   damageTimer: 2
