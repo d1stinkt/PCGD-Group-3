@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: ab0d56b53175f8243ba5a751f76f562b
+guid: 403223a67f0cfbe47b02b822d9e87396
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 475160989957322621
+    second: wallstraight1_0
+  - first:
+      213: -160805699043091035
+    second: wallstraight1_1
+  - first:
+      213: 3744165985199281453
+    second: wallstraight1_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -35,13 +44,13 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -89,7 +98,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: wallstraight1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 73.33333
+        width: 13
+        height: 36.666668
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d777781276c189600800000000000000
+      internalID: 475160989957322621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wallstraight1_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 37.333332
+        width: 13
+        height: 36.666668
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad9da69114b4cdf0800000000000000
+      internalID: -160805699043091035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wallstraight1_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 13
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2557e74023f5f330800000000000000
+      internalID: 3744165985199281453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

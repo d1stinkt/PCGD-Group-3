@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: edba3492fb365e14cb4645c2640019c6
+guid: 1e310d270c420f34ea3791e0e024669c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8185252286816643056
-    second: wall_short
+      213: -5543125174005104584
+    second: wallstraight_0
   - first:
-      213: 4723250963254362342
-    second: wall_med
+      213: -6342158835828767457
+    second: wallstraight_1
   - first:
-      213: 2029603016695656400
-    second: wall_long
+      213: 7640904216497662146
+    second: wallstraight_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -44,9 +44,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wall_short
+      name: wallstraight_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 83
-        width: 110
+        x: 0
+        y: 0
+        width: 36.666668
         height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -114,19 +114,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01817579964286e80800000000000000
-      internalID: -8185252286816643056
+      spriteID: 83086e1e50dd213b0800000000000000
+      internalID: -5543125174005104584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall_med
+      name: wallstraight_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 59
-        width: 266
+        x: 36
+        y: 0
+        width: 36.666668
         height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -135,19 +135,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e04cc9e9bb5c8140800000000000000
-      internalID: 4723250963254362342
+      spriteID: f15425914202cf7a0800000000000000
+      internalID: -6342158835828767457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall_long
+      name: wallstraight_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 33
-        width: 898
+        x: 72
+        y: 0
+        width: 38
         height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -156,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0dfa43db0399a2c10800000000000000
-      internalID: 2029603016695656400
+      spriteID: 2c8a023d6e1f90a60800000000000000
+      internalID: 7640904216497662146
       vertices: []
       indices: 
       edges: []
