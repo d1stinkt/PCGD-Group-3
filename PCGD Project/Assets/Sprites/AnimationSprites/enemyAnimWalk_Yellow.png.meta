@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 98c7f58ddebc1cc4396641744a7a804c
+guid: cee701205755ffe479f59e2bf26eb090
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1042158616562537609
-    second: enemy_Anim_walk_0
+      213: -8197413318689265896
+    second: enemyAnimWalk_Yellow_0
   - first:
-      213: -3583609838683984741
-    second: enemy_Anim_walk_1
+      213: 8136619137664601201
+    second: enemyAnimWalk_Yellow_1
   - first:
-      213: 352643262969349881
-    second: enemy_Anim_walk_2
+      213: 5472123033440128652
+    second: enemyAnimWalk_Yellow_2
   - first:
-      213: 3844222580141499816
-    second: enemy_Anim_walk_3
+      213: 7808560431228971922
+    second: enemyAnimWalk_Yellow_3
   - first:
-      213: 8156498500753648189
-    second: enemy_Anim_walk_4
+      213: -8370374290302761355
+    second: enemyAnimWalk_Yellow_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -106,7 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_Anim_walk_0
+      name: enemyAnimWalk_Yellow_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,20 +114,20 @@ TextureImporter:
         width: 28
         height: 36
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77b6d2482428981f0800000000000000
-      internalID: -1042158616562537609
+      spriteID: 8176876b400fc3e80800000000000000
+      internalID: -8197413318689265896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_Anim_walk_1
+      name: enemyAnimWalk_Yellow_1
       rect:
         serializedVersion: 2
         x: 33
@@ -135,20 +135,20 @@ TextureImporter:
         width: 28
         height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9c65a7a6d5744ec0800000000000000
-      internalID: -3583609838683984741
+      spriteID: 17cc42dfef31be070800000000000000
+      internalID: 8136619137664601201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_Anim_walk_2
+      name: enemyAnimWalk_Yellow_2
       rect:
         serializedVersion: 2
         x: 71
@@ -156,20 +156,20 @@ TextureImporter:
         width: 28
         height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f609b5ed27d4e400800000000000000
-      internalID: 352643262969349881
+      spriteID: c8e8e6708e2e0fb40800000000000000
+      internalID: 5472123033440128652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_Anim_walk_3
+      name: enemyAnimWalk_Yellow_3
       rect:
         serializedVersion: 2
         x: 108
@@ -177,20 +177,20 @@ TextureImporter:
         width: 28
         height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a5aedea11c695530800000000000000
-      internalID: 3844222580141499816
+      spriteID: 29be29637549d5c60800000000000000
+      internalID: 7808560431228971922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: enemy_Anim_walk_4
+      name: enemyAnimWalk_Yellow_4
       rect:
         serializedVersion: 2
         x: 140
@@ -198,14 +198,14 @@ TextureImporter:
         width: 28
         height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3a6d64eb24b13170800000000000000
-      internalID: 8156498500753648189
+      spriteID: 576017d5ee476db80800000000000000
+      internalID: -8370374290302761355
       vertices: []
       indices: 
       edges: []
