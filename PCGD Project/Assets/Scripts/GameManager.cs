@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public GameOverScreen GameOverScreen;
     public PauseMenuScreen PauseMenuScreen;
 
-    
+    public bool rainbowBullet = false;
 
     void Start()
     {
@@ -86,7 +86,21 @@ public class GameManager : MonoBehaviour
 
     }
 
-
+    //Power ups
+    public IEnumerator PowerUp(int id)
+    {
+        Debug.Log("Test1");
+        switch (id)
+        {
+            case 0:
+                Debug.Log("Test2");
+                rainbowBullet = true;
+                yield return new WaitForSeconds(5);
+                rainbowBullet = false;
+                Debug.Log("Test3");
+                break;
+        }
+    }
 }
 
 public class Global

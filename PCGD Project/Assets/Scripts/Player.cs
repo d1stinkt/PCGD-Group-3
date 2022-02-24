@@ -102,6 +102,13 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        //Power-ups
+        if (collision.tag == "PowerUp")
+        {
+            StartCoroutine(gm.PowerUp(collision.GetComponent<PowerUp>().powerUpID));
+            Destroy(collision.gameObject);
+        }
     }
 
     void StopBounce()
