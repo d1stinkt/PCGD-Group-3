@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6003902843446859871}
   - component: {fileID: 8070530052274814424}
+  - component: {fileID: 6293143069363656080}
   m_Layer: 0
   m_Name: smallTable
   m_TagString: Untagged
@@ -82,3 +83,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &6293143069363656080
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7186995085532079383}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06402969, y: 0.3841915}
+  serializedVersion: 2
+  m_Radius: 4.0395184
