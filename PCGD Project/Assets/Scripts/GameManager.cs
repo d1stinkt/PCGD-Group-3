@@ -89,15 +89,12 @@ public class GameManager : MonoBehaviour
     //Power ups
     public IEnumerator PowerUp(int id)
     {
-        Debug.Log("Test1");
         switch (id)
         {
             case 0:
-                Debug.Log("Test2");
                 rainbowBullet = true;
                 yield return new WaitForSeconds(5);
                 rainbowBullet = false;
-                Debug.Log("Test3");
                 break;
         }
     }
