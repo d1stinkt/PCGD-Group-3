@@ -25,6 +25,16 @@ public class GameManager : MonoBehaviour
     public PauseMenuScreen PauseMenuScreen;
 
     public bool rainbowBullet = false;
+    public bool armor = false;
+    bool speedUp = false;
+    [SerializeField]
+    float speedMultiplier;
+
+    [SerializeField]
+    GameObject[] powerUps;
+    [SerializeField]
+    float[] powerUpSpawnLimit;
+    int powerUpCount = 0;
 
     void Start()
     {
@@ -32,7 +42,7 @@ public class GameManager : MonoBehaviour
         scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
         highScore = scoreSystem.LoadScore();
         highScoreTxt.text = "Highscore: " + highScore.ToString();
-        
+        InvokeRepeating("SpawnPowerUp", 1f, 10f);
     }
 
 
@@ -86,15 +96,47 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void SpawnPowerUp()
+    {
+        if (powerUpCount >= 5) { return; }
+        powerUpCount++;
+        Vector3 PowerUpSpawn = new  Vector3(Random.Range(-powerUpSpawnLimit[0], powerUpSpawnLimit[0]), Random.Range(-powerUpSpawnLimit[1], powerUpSpawnLimit[1]), 0f);
+        GameObject powerUp = powerUps[Random.Range(0, powerUps.Length)];
+        Instantiate(powerUp, PowerUpSpawn, powerUp.transform.rotation);
+    }
+
     //Power ups
     public IEnumerator PowerUp(int id)
     {
+        Debug.Log("Test");
+        powerUpCount--;
         switch (id)
         {
             case 0:
+                if (rainbowBullet) { break; }
                 rainbowBullet = true;
                 yield return new WaitForSeconds(5);
                 rainbowBullet = false;
+                break;
+
+            case 1:
+                if (speedUp) { break; }
+                speedUp = true;
+                player.GetComponent<Player>().moveSpeed *= speedMultiplier;
+                yield return new WaitForSeconds(5);
+                player.GetComponent<Player>().moveSpeed /= speedMultiplier;
+                speedUp = false;
+                break;
+
+            case 2:
+                if (armor) { break; }
+                armor = true;
+                yield return new WaitForSeconds(5);
+                armor = false;
+                break;
+
+            default:
+                Debug.LogError("Power-up ID not recognized");
                 break;
         }
     }

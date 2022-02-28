@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && !gm.armor)
         {
             Vector2 direction = transform.position - collision.transform.position;
             direction.Normalize();
@@ -106,6 +106,7 @@ public class Player : MonoBehaviour
         //Power-ups
         if (collision.tag == "PowerUp")
         {
+            Physics2D.IgnoreCollision(collision, GetComponent<BoxCollider2D>());
             StartCoroutine(gm.PowerUp(collision.GetComponent<PowerUp>().powerUpID));
             Destroy(collision.gameObject);
         }

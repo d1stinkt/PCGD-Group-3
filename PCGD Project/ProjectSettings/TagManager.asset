@@ -10,6 +10,7 @@ TagManager:
   - GreenArea
   - Enemy
   - GameAreaBorder
+  - PowerUp
   layers:
   - Default
   - TransparentFX
