@@ -56,7 +56,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            int enemyColor = collision.gameObject.GetComponent<EnemyMovement>().ID;
+            int enemyColor = collision.gameObject.GetComponent<EnemyAI>().ID;
             if (enemyColor == colorID || gm.rainbowBullet)
             {
                 Destroy(gameObject);
