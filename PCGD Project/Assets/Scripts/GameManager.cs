@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject[] powerUps;
     [SerializeField]
-    float[] powerUpSpawnLimit;
+    Vector3[] powerUpSpawns;
     int powerUpCount = 0;
 
     void Start()
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
     {
         if (powerUpCount >= 5) { return; }
         powerUpCount++;
-        Vector3 PowerUpSpawn = new  Vector3(Random.Range(-powerUpSpawnLimit[0], powerUpSpawnLimit[0]), Random.Range(-powerUpSpawnLimit[1], powerUpSpawnLimit[1]), 0f);
+        Vector3 PowerUpSpawn = powerUpSpawns[Random.Range(0, powerUpSpawns.Length)];
         GameObject powerUp = powerUps[Random.Range(0, powerUps.Length)];
         Instantiate(powerUp, PowerUpSpawn, powerUp.transform.rotation);
     }
