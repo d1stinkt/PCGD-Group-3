@@ -5,22 +5,18 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
-    public bool alive;
 
     public Rigidbody2D rb;
     public Camera mainCamera;
+    public Player player;
 
     private Vector2 moveDirection;
     private Vector2 mousePosition;
 
-    void Start()
-    {
-        alive = true;    
-    }
 
     void Update()
     {
-        if (alive)
+        if (player.alive)
         {
             PlayerInput();
         }
@@ -28,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (alive)
+        if (player.alive)
         {
             Move();
         }

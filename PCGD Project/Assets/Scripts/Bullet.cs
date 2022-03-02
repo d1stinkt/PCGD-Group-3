@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sr;
 
-    int color;
+    int colorID;
 
     private void Awake()
     {
@@ -20,25 +20,35 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb.AddForce(gm.bulletForce * transform.up, ForceMode2D.Impulse);
-        color = gm.ColorID;
-        
-        switch (color)
+        colorID = gm.ColorID;
+    }
+
+    private void Update()
+    {
+        if (!gm.rainbowBullet)
         {
-            case 0:
-                sr.color = Color.yellow;
-                break;
+            switch (colorID)
+            {
+                case 0:
+                    sr.color = Color.yellow;
+                    break;
 
-            case 1:
-                sr.color = Color.blue;
-                break;
+                case 1:
+                    sr.color = Color.blue;
+                    break;
 
-            case 2:
-                sr.color =new Color(0,0.5f,0,1);
-                break;
+                case 2:
+                    sr.color = new Color(0, 0.5f, 0, 1);
+                    break;
 
-            case 3:
-                sr.color = new Color(0.5f, 0, 0, 1);
-                break;
+                case 3:
+                    sr.color = new Color(0.5f, 0, 0, 1);
+                    break;
+            }
+        }
+        else
+        {
+            sr.color = Color.black;
         }
     }
 
@@ -47,7 +57,7 @@ public class Bullet : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             int enemyColor = collision.gameObject.GetComponent<EnemyMovement>().ID;
-            if (enemyColor == color)
+            if (enemyColor == colorID || gm.rainbowBullet)
             {
                 Destroy(gameObject);
                 Destroy(collision.gameObject);

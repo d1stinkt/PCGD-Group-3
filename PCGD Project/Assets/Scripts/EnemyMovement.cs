@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     GameObject player;
-    public PlayerMovement playerScript;
 
     public float enemySpeed;
     float rotationOffset = 270f;
@@ -38,15 +37,5 @@ public class EnemyMovement : MonoBehaviour
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(Vector3.forward * (angle + rotationOffset));
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Destroy(collision.gameObject);
-            playerScript.alive = false;
-        }
     }
 }

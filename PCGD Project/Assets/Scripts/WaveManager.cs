@@ -20,6 +20,8 @@ public class WaveManager : MonoBehaviour
     public int waveEnemies;
     public GameObject[] typeOfEnemies;
 
+    GameManager gm;
+
     [System.Serializable]
     public class Wave
     {
@@ -31,6 +33,7 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         waveCD = timeBetweenWaves;
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
 
@@ -51,7 +54,7 @@ public class WaveManager : MonoBehaviour
         }
         if (waveCD <= 0)
         {
-            Debug.Log("Wavecounter down");
+            //Debug.Log("Wavecounter down");
             if (state != SpawnState.SPAWNING)
             {
                 StartCoroutine(SpawnWave(waves[nextWave]));
@@ -80,6 +83,7 @@ public class WaveManager : MonoBehaviour
 
         nextWave++;
         currentWave++;
+        gm.score++;
     }
 
     bool EnemiesLeft()

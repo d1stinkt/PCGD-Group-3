@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,10 +14,38 @@ public class GameManager : MonoBehaviour
 
     public float bulletForce;
 
+    ScoreSystem scoreSystem;
+    public int score = 1;
+    int highScore;
+
+    [SerializeField]
+    Text scoreTxt, highScoreTxt;
+
+    public GameOverScreen GameOverScreen;
+    public PauseMenuScreen PauseMenuScreen;
+
+    public bool rainbowBullet = false;
+    public bool armor = false;
+    bool speedUp = false;
+    [SerializeField]
+    float speedMultiplier;
+
+    [SerializeField]
+    GameObject[] powerUps;
+    [SerializeField]
+    float[] powerUpSpawnLimit;
+    int powerUpCount = 0;
+
     void Start()
     {
         Application.targetFrameRate = 60;
+        scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
+        highScore = scoreSystem.LoadScore();
+        highScoreTxt.text = "Highscore: " + highScore.ToString();
+        InvokeRepeating("SpawnPowerUp", 1f, 10f);
     }
+
+
 
     void Update()
     {
@@ -44,5 +74,75 @@ public class GameManager : MonoBehaviour
             default:
                 break;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            Time.timeScale = 0f;
+            PauseMenuScreen.ShowPauseMenu(score);
+
+        }
+
+        scoreTxt.text = "Score: " + score.ToString();
     }
+
+    public void GameOver()
+    {
+        GameOverScreen.ShowMenu(score);
+
+        if (score > highScore)
+        {
+            scoreSystem.SaveScore(score);
+        }
+
+    }
+
+    void SpawnPowerUp()
+    {
+        if (powerUpCount >= 5) { return; }
+        powerUpCount++;
+        Vector3 PowerUpSpawn = new  Vector3(Random.Range(-powerUpSpawnLimit[0], powerUpSpawnLimit[0]), Random.Range(-powerUpSpawnLimit[1], powerUpSpawnLimit[1]), 0f);
+        GameObject powerUp = powerUps[Random.Range(0, powerUps.Length)];
+        Instantiate(powerUp, PowerUpSpawn, powerUp.transform.rotation);
+    }
+
+    //Power ups
+    public IEnumerator PowerUp(int id)
+    {
+        Debug.Log("Test");
+        powerUpCount--;
+        switch (id)
+        {
+            case 0:
+                if (rainbowBullet) { break; }
+                rainbowBullet = true;
+                yield return new WaitForSeconds(5);
+                rainbowBullet = false;
+                break;
+
+            case 1:
+                if (speedUp) { break; }
+                speedUp = true;
+                player.GetComponent<Player>().moveSpeed *= speedMultiplier;
+                yield return new WaitForSeconds(5);
+                player.GetComponent<Player>().moveSpeed /= speedMultiplier;
+                speedUp = false;
+                break;
+
+            case 2:
+                if (armor) { break; }
+                armor = true;
+                yield return new WaitForSeconds(5);
+                armor = false;
+                break;
+
+            default:
+                Debug.LogError("Power-up ID not recognized");
+                break;
+        }
+    }
+}
+
+public class Global
+{
+    public static bool GamePaused;
 }
