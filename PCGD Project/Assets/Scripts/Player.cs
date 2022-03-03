@@ -72,8 +72,8 @@ public class Player : MonoBehaviour
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
         //Animations
-        bottomAnimator.SetFloat("Horizontal", moveDirection.x);
-        bottomAnimator.SetFloat("Vertical", moveDirection.y);
+        bottomAnimator.SetFloat("Horizontal", moveX);
+        bottomAnimator.SetFloat("Vertical", moveY);
         bottomAnimator.SetFloat("Magnitude", moveDirection.magnitude);
     }
 
