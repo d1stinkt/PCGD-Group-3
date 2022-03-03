@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject speedBar;
     public GameObject rainbowBar;
+    public GameObject armorIcon;
 
     [SerializeField]
     GameObject[] powerUps;
@@ -136,6 +137,7 @@ public class GameManager : MonoBehaviour
 
             case 2:
                 if (armor) { break; }
+                armorIcon.SetActive(true);
                 armor = true;
                 break;
 

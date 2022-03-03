@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public Camera mainCamera;
     public HealthBar healthBar;
+    public GameObject armorIcon;
 
     private Vector2 moveDirection;
     private Vector2 mousePosition;
@@ -141,7 +142,8 @@ public class Player : MonoBehaviour
 
     IEnumerator ArmorBreak()
     {
-        yield return new WaitForSeconds(1.5f);
+        armorIcon.SetActive(false);
+        yield return new WaitForSeconds(1.0f);
         gm.armor = false;
     }
 

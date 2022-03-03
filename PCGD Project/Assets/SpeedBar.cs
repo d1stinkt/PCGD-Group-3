@@ -16,16 +16,21 @@ public class SpeedBar : MonoBehaviour
         speedTimer = 1f;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (gm.speedUp)
         {
             StartCoroutine(sliderDown());
         }
-        else
+
+        SliderFill();
+    }
+
+    void SliderFill()
+    {
+        if (slider.value == 0)
         {
-            speedTimer = 1f;
-            slider.value = 1f;
+            StartCoroutine(Wait());
         }
     }
 
@@ -33,5 +38,12 @@ public class SpeedBar : MonoBehaviour
     {
         slider.value = speedTimer -= Time.deltaTime / 5f;
         yield return null;
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.01f);
+        speedTimer = 1f;
+        slider.value = 1f;
     }
 }
