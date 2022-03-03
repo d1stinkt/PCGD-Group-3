@@ -26,9 +26,12 @@ public class GameManager : MonoBehaviour
 
     public bool rainbowBullet = false;
     public bool armor = false;
-    bool speedUp = false;
+    public bool speedUp = false;
     [SerializeField]
     float speedMultiplier;
+
+    public GameObject speedBar;
+    public GameObject rainbowBar;
 
     [SerializeField]
     GameObject[] powerUps;
@@ -114,7 +117,9 @@ public class GameManager : MonoBehaviour
             case 0:
                 if (rainbowBullet) { break; }
                 rainbowBullet = true;
+                rainbowBar.SetActive(true);
                 yield return new WaitForSeconds(5);
+                rainbowBar.SetActive(false);
                 rainbowBullet = false;
                 break;
 
@@ -122,7 +127,9 @@ public class GameManager : MonoBehaviour
                 if (speedUp) { break; }
                 speedUp = true;
                 player.GetComponent<Player>().moveSpeed *= speedMultiplier;
+                speedBar.SetActive(true);
                 yield return new WaitForSeconds(5);
+                speedBar.SetActive(false);
                 player.GetComponent<Player>().moveSpeed /= speedMultiplier;
                 speedUp = false;
                 break;
