@@ -10,6 +10,7 @@ public class Shooting : MonoBehaviour
     GameObject bullet;
 
     Player player;
+    float timer = 0f;
 
     private void Start()
     {
@@ -17,12 +18,14 @@ public class Shooting : MonoBehaviour
     }
 
     void Update()
-    {   
+    {
+        timer += Time.deltaTime;
  
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1") && timer > 0.5f)
         {
             if (Time.timeScale > 0 && player.alive)
             {
+                timer = 0f;
                 Instantiate(bullet, shootPoint.position, shootPoint.rotation);
             }        
         }

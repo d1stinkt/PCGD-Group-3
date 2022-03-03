@@ -74,4 +74,22 @@ public class WaveSurvivedText : MonoBehaviour
     {
         return new Vector2(Mathf.Sin(time * 3.3f), Mathf.Cos(time * 2.5f));
     }
+
+    public void TextFade()
+    {
+        StartCoroutine(FadeCoroutine());
+    }
+
+    IEnumerator FadeCoroutine()
+    {
+        float fadeTime = 2f;
+        float waitTime = 0;
+        while (waitTime < 1)
+        {
+            textMesh.fontMaterial.SetColor("_FaceColor", Color.Lerp(Color.clear, Color.white, waitTime));
+            yield return null;
+            waitTime += Time.deltaTime / fadeTime;
+
+        }
+    }
 }

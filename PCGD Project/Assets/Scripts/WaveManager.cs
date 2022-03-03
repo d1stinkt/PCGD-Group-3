@@ -22,7 +22,8 @@ public class WaveManager : MonoBehaviour
     public GameObject[] typeOfEnemies;
 
     GameManager gm;
-    GameObject text;
+    GameObject survivedText;
+    WaveSurvivedText waveSurvivedText;
 
     [System.Serializable]
     public class Wave
@@ -36,8 +37,9 @@ public class WaveManager : MonoBehaviour
     {
         waveCD = timeBetweenWaves;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        text = GameObject.Find("WaveSurvived");
-        text.SetActive(false);
+        survivedText = GameObject.Find("WaveSurvived");
+        waveSurvivedText = survivedText.GetComponent<WaveSurvivedText>();
+        survivedText.SetActive(false);
     }
 
 
@@ -144,9 +146,10 @@ public class WaveManager : MonoBehaviour
 
     IEnumerator WaveSurvived()
     {
-        text.SetActive(true);
-        yield return new WaitForSeconds(3);
-        text.SetActive(false);
+        survivedText.SetActive(true);
+        //waveSurvivedText.TextFade();
+        yield return new WaitForSeconds(2.5f);
+        survivedText.SetActive(false);
     }
 
 }
