@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class WaveManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class WaveManager : MonoBehaviour
     public GameObject[] typeOfEnemies;
 
     GameManager gm;
+    GameObject text;
 
     [System.Serializable]
     public class Wave
@@ -34,6 +36,7 @@ public class WaveManager : MonoBehaviour
     {
         waveCD = timeBetweenWaves;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        text = GameObject.Find("WaveSurvived");
     }
 
 
@@ -45,7 +48,8 @@ public class WaveManager : MonoBehaviour
         {
             if (!EnemiesLeft())
             {
-                SpawnNextWave();
+                StartCoroutine(WaveSurvived());
+                SpawnNextWave(); 
             }
             else
             {
@@ -94,6 +98,7 @@ public class WaveManager : MonoBehaviour
             searchCD = 1f;
             if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
+                StartCoroutine(WaveSurvived());
                 return false;
             }
         }
@@ -134,6 +139,13 @@ public class WaveManager : MonoBehaviour
         Instantiate(typeOfEnemies[Random.Range(0,4)], yellowSpawnPoint.position, yellowSpawnPoint.rotation);
 
         waveEnemies--;
+    }
+
+    IEnumerator WaveSurvived()
+    {
+        text.SetActive(true);
+        yield return new WaitForSeconds(3);
+        text.SetActive(false);
     }
 
 }

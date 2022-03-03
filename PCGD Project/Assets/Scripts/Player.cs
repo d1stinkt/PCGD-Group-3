@@ -79,7 +79,17 @@ public class Player : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" && !gm.armor)
+        if (collision.gameObject.tag == "Enemy" && gm.armor)
+        {
+            Vector2 direction = transform.position - collision.transform.position;
+            direction.Normalize();
+            rb.AddForce(direction * bounce, ForceMode2D.Impulse);
+            enemyHit = true;
+            Invoke("StopBounce", 0.2f);
+            StartCoroutine(ArmorBreak());
+        }
+
+        else if (collision.gameObject.tag == "Enemy" && !gm.armor)
         {
             Vector2 direction = transform.position - collision.transform.position;
             direction.Normalize();
@@ -103,6 +113,8 @@ public class Player : MonoBehaviour
             }
         }
 
+
+
         //Power-ups
         if (collision.tag == "PowerUp")
         {
@@ -115,6 +127,12 @@ public class Player : MonoBehaviour
     void StopBounce()
     {
         enemyHit = false;
+    }
+
+    IEnumerator ArmorBreak()
+    {
+        yield return new WaitForSeconds(1.5f);
+        gm.armor = false;
     }
 
     void LoseHealth(int damage)
