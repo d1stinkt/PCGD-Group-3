@@ -30,7 +30,7 @@ public class PauseMenuScreen : MonoBehaviour
     public void ShowPauseMenu(int points)
     {
         gameObject.SetActive(true);
-        scorePauseText.text = "SCORE: " + points.ToString();
+        scorePauseText.text = "WAVE: " + points.ToString();
     
     }
 
