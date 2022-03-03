@@ -37,6 +37,7 @@ public class WaveManager : MonoBehaviour
         waveCD = timeBetweenWaves;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         text = GameObject.Find("WaveSurvived");
+        text.SetActive(false);
     }
 
 

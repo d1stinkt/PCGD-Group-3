@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
 
         }
 
-        scoreTxt.text = "Score: " + score.ToString();
+        scoreTxt.text = "CURRENT WAVE: " + score.ToString();
     }
 
     public void GameOver()
@@ -108,7 +108,6 @@ public class GameManager : MonoBehaviour
     //Power ups
     public IEnumerator PowerUp(int id)
     {
-        Debug.Log("Test");
         powerUpCount--;
         switch (id)
         {
