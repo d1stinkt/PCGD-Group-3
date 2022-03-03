@@ -42,11 +42,13 @@ public class Player : MonoBehaviour
         if (alive)
         {
             PlayerInput();
-
+            damageTimer = damageTimer - Time.deltaTime;
         }
-
-        damageTimer = damageTimer - Time.deltaTime;
-
+        else
+        {
+            Debug.Log("Test");
+            bottomAnimator.SetFloat("Magnitude", 0);
+        }
     }
 
     private void FixedUpdate()

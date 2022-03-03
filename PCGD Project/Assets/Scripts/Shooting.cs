@@ -9,13 +9,19 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     GameObject bullet;
 
+    Player player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<Player>();
+    }
 
     void Update()
     {   
  
         if(Input.GetButtonDown("Fire1"))
         {
-            if (Time.timeScale > 0)
+            if (Time.timeScale > 0 && player.alive)
             {
                 Instantiate(bullet, shootPoint.position, shootPoint.rotation);
             }        
