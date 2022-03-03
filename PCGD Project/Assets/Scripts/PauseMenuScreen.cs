@@ -17,6 +17,16 @@ public class PauseMenuScreen : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 1f;
+            GameIsPaused = false;
+            gameObject.SetActive(false);
+        }
+    }
+
     public void ShowPauseMenu(int points)
     {
         gameObject.SetActive(true);
@@ -37,5 +47,4 @@ public class PauseMenuScreen : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
-
 }

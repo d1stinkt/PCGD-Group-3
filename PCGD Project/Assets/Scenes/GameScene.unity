@@ -10990,9 +10990,15 @@ MonoBehaviour:
   PauseMenuScreen: {fileID: 6384174431786575404}
   rainbowBullet: 0
   armor: 0
-  speedMultiplier: 0
-  powerUps: []
-  powerUpSpawns: []
+  speedMultiplier: 1.5
+  powerUps:
+  - {fileID: 7451562232725661871, guid: 877db1715b175b84093dc81361c80c99, type: 3}
+  - {fileID: 8169080628993818243, guid: c57e1ba21828d5145b249ee37e1af6f3, type: 3}
+  - {fileID: 6650232936173363178, guid: 920052f5add6e81429d2ad1848b57636, type: 3}
+  powerUpSpawns:
+  - {x: -66, y: 61, z: 0}
+  - {x: -35, y: 61, z: 0}
+  - {x: 13, y: 57, z: 0}
 --- !u!4 &1567353781
 Transform:
   m_ObjectHideFlags: 0
@@ -11618,7 +11624,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.39331436, y: 0.19665623}
+  m_Offset: {x: 0.13274574, y: 0.41379642}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -11629,7 +11635,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 46.946022, y: 10.806688}
+  m_Size: {x: 46.424885, y: 10.372408}
   m_EdgeRadius: 0
 --- !u!1 &1710137137
 GameObject:
