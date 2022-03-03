@@ -131,8 +131,6 @@ public class GameManager : MonoBehaviour
             case 2:
                 if (armor) { break; }
                 armor = true;
-                yield return new WaitForSeconds(5);
-                armor = false;
                 break;
 
             default:
