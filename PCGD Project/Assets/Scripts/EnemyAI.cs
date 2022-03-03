@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
     Rigidbody2D enemyRb;
 
     public int ID;
-
+ 
     float rotationOffset = 270f;
     float scale = 1.2f;
 
@@ -19,7 +19,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
+        //agent.updateRotation = false;
         agent.updateUpAxis = false;
         enemyRb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player").GetComponent<Transform>();
@@ -36,7 +36,8 @@ public class EnemyAI : MonoBehaviour
 
     void Rotate()
     {
-        Vector2 direction = player.transform.position - transform.position;
+        var turnTowardNavSteeringTarget = agent.steeringTarget;
+        Vector3 direction = (turnTowardNavSteeringTarget - transform.position);
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         enemyRb.transform.rotation = Quaternion.Euler(Vector3.forward * (angle + rotationOffset));
