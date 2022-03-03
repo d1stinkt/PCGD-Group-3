@@ -7441,7 +7441,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023769615}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7272743fdd5e5164395a7a7174904616, type: 2}
   m_CullingMode: 0
@@ -10324,6 +10324,7 @@ GameObject:
   - component: {fileID: 1433154543}
   - component: {fileID: 1433154542}
   - component: {fileID: 1433154541}
+  - component: {fileID: 1433154544}
   m_Layer: 0
   m_Name: BottomPart
   m_TagString: Untagged
@@ -10415,6 +10416,25 @@ Transform:
   m_Father: {fileID: 1785712976}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1818360609 &1433154544
+RotationConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433154540}
+  m_Enabled: 1
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 857767530}
+    weight: 1
 --- !u!4 &1438415572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3804253325900464814, guid: 47dd81399c83379488bb0471979aadbc, type: 3}
