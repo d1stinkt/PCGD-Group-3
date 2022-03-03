@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
+
     [SerializeField]
     Text score;
 
@@ -15,15 +16,20 @@ public class Menu : MonoBehaviour
     [SerializeField]
     int s;
 
+    StartGame startGame;
+
     private void Start()
     {
         scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
+        startGame = GameObject.Find("GameBegin").GetComponent<StartGame>();
     }
 
     public void Play()
     {
-        SceneManager.LoadScene("GameScene");
+        startGame.LevelBegin();
     }
+
+
 
     public void Quit()
     {
