@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 mousePosition;
 
+    public Animator bottomAnimator;
+
     GameManager gm;
 
     void Start()
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour
         if (alive)
         {
             PlayerInput();
+
         }
 
         damageTimer = damageTimer - Time.deltaTime;
@@ -67,6 +70,11 @@ public class Player : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+
+        //Animations
+        bottomAnimator.SetFloat("Horizontal", moveDirection.x);
+        bottomAnimator.SetFloat("Vertical", moveDirection.y);
+        bottomAnimator.SetFloat("Magnitude", moveDirection.magnitude);
     }
 
     void Move()
