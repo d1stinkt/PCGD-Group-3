@@ -130,8 +130,17 @@ public class Player : MonoBehaviour
         if (collision.tag == "PowerUp")
         {
             Physics2D.IgnoreCollision(collision, GetComponent<BoxCollider2D>());
-            StartCoroutine(gm.PowerUp(collision.GetComponent<PowerUp>().powerUpID));
-            Destroy(collision.gameObject);
+            int ID = collision.GetComponent<PowerUp>().powerUpID;
+
+            if (ID == 2 && gm.armor) { Destroy(collision.gameObject); }
+            if (ID == 1 && (gm.speedUp || gm.rainbowBullet)) { Destroy(collision.gameObject); }
+            if (ID == 0 && (gm.speedUp || gm.rainbowBullet)) { Destroy(collision.gameObject); }
+
+            else
+            {
+                StartCoroutine(gm.PowerUp(collision.GetComponent<PowerUp>().powerUpID));
+                Destroy(collision.gameObject);
+            }
         }
     }
 
