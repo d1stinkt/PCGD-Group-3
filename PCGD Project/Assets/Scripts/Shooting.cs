@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    AudioManager AudioManager;
+
     [SerializeField]
     Transform shootPoint;
     [SerializeField]
@@ -15,6 +17,7 @@ public class Shooting : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
+        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void Update()
@@ -23,10 +26,13 @@ public class Shooting : MonoBehaviour
  
         if(Input.GetButtonDown("Fire1") && timer > 0.5f)
         {
+            AudioManager.Play("BulletNoise");
             if (Time.timeScale > 0 && player.alive)
             {
+                
                 timer = 0f;
                 Instantiate(bullet, shootPoint.position, shootPoint.rotation);
+                
             }        
         }
     }

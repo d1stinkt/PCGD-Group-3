@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
+    AudioManager AudioManager;
     public Animator animator;
     float transitionTime = 1.5f;
+
+
+    public void Start()
+    {
+        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
 
     public void LevelBegin()
     {
@@ -18,5 +25,6 @@ public class StartGame : MonoBehaviour
     {
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(index);
+        AudioManager.Play("Theme");
     }
 }
