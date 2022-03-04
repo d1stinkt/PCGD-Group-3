@@ -157,11 +157,19 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: a883edde656a34d449ffa1065eb9be0b, type: 3}
     volume: 0.452
     loop: 0
+    paused: 0
     source: {fileID: 0}
   - name: Theme
     clip: {fileID: 8300000, guid: 9e97df6f9139c7541a22a1bb679f2a74, type: 3}
     volume: 0.436
     loop: 1
+    paused: 0
+    source: {fileID: 0}
+  - name: Menu
+    clip: {fileID: 8300000, guid: 46d1834cf7e48544e8c679b0c9431d7d, type: 3}
+    volume: 0.436
+    loop: 1
+    paused: 0
     source: {fileID: 0}
 --- !u!4 &292376838
 Transform:
@@ -1481,6 +1489,10 @@ PrefabInstance:
     - target: {fileID: 3823620340997896073, guid: dcd6687ed56c9ea489e18d41d9448aa0, type: 3}
       propertyPath: m_Name
       value: GameBegin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823620340997896073, guid: dcd6687ed56c9ea489e18d41d9448aa0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3823620340997896075, guid: dcd6687ed56c9ea489e18d41d9448aa0, type: 3}
       propertyPath: m_RootOrder

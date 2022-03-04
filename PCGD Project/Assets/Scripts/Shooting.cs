@@ -26,10 +26,10 @@ public class Shooting : MonoBehaviour
  
         if(Input.GetButtonDown("Fire1") && timer > 0.5f)
         {
-            AudioManager.Play("BulletNoise");
+            
             if (Time.timeScale > 0 && player.alive)
             {
-                
+                AudioManager.Play("BulletNoise");
                 timer = 0f;
                 Instantiate(bullet, shootPoint.position, shootPoint.rotation);
                 

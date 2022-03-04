@@ -8,13 +8,13 @@ public class PauseMenuScreen : MonoBehaviour
 {
     public Text scorePauseText;
     private bool GameIsPaused;
-    
 
+    AudioManager AudioManager;
 
     private void Start()
     {
         GameIsPaused = Global.GamePaused;
-        
+        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     private void Update()
@@ -46,5 +46,6 @@ public class PauseMenuScreen : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
+        AudioManager.Pause("Theme");
     }
 }

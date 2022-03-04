@@ -13,6 +13,7 @@ public class Sound
     public float volume;
 
     public bool loop;
+    public bool paused;
 
     [HideInInspector]
     public AudioSource source;
