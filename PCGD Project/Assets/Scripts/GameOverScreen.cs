@@ -6,7 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
+    AudioManager AudioManager;
+
     public Text scoreText;
+
+    public void Start()
+    {
+        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
 
     public void ShowMenu(int points)
     {
@@ -22,6 +29,7 @@ public class GameOverScreen : MonoBehaviour
     public void MainMenuButton()
     {
         SceneManager.LoadScene("Menu");
+        AudioManager.Pause("Theme");
     }
 
 }

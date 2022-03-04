@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
+    AudioManager AudioManager;
 
     [SerializeField]
     Text score;
@@ -20,13 +21,17 @@ public class Menu : MonoBehaviour
 
     private void Start()
     {
+        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
         startGame = GameObject.Find("GameBegin").GetComponent<StartGame>();
+        AudioManager.Play("Menu");   
     }
 
     public void Play()
     {
+        AudioManager.Pause("Menu");
         startGame.LevelBegin();
+        
     }
 
 
