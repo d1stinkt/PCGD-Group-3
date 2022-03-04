@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
     GameObject[] powerUps;
     [SerializeField]
     Vector3[] powerUpSpawns;
-    int powerUpCount = 0;
 
     void Start()
     {
@@ -102,9 +101,12 @@ public class GameManager : MonoBehaviour
 
     void SpawnPowerUp()
     {
-        if (powerUpCount >= 5) { return; }
-        powerUpCount++;
+        if (GameObject.FindGameObjectsWithTag("PowerUp").Length >= 5) { return; }
         Vector3 PowerUpSpawn = powerUpSpawns[Random.Range(0, powerUpSpawns.Length)];
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("PowerUp"))
+        {
+            if (PowerUpSpawn == g.transform.position) { SpawnPowerUp(); return; }
+        }
         GameObject powerUp = powerUps[Random.Range(0, powerUps.Length)];
         Instantiate(powerUp, PowerUpSpawn, powerUp.transform.rotation);
     }
@@ -112,7 +114,6 @@ public class GameManager : MonoBehaviour
     //Power ups
     public IEnumerator PowerUp(int id)
     {
-        powerUpCount--;
         switch (id)
         {
             case 0:
