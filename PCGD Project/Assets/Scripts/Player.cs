@@ -133,8 +133,7 @@ public class Player : MonoBehaviour
             int ID = collision.GetComponent<PowerUp>().powerUpID;
 
             if (ID == 2 && gm.armor) { Destroy(collision.gameObject); }
-            if (ID == 1 && (gm.speedUp || gm.rainbowBullet)) { Destroy(collision.gameObject); }
-            if (ID == 0 && (gm.speedUp || gm.rainbowBullet)) { Destroy(collision.gameObject); }
+            if ((ID == 1 || ID == 0) && (gm.speedUp || gm.rainbowBullet)) { Destroy(collision.gameObject); }
 
             else
             {

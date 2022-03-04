@@ -107,8 +107,17 @@ public class GameManager : MonoBehaviour
         {
             if (PowerUpSpawn == g.transform.position) { SpawnPowerUp(); return; }
         }
-        GameObject powerUp = powerUps[Random.Range(0, powerUps.Length)];
-        Instantiate(powerUp, PowerUpSpawn, powerUp.transform.rotation);
+
+        if (armor)
+        {
+            GameObject powerUp = powerUps[Random.Range(0, powerUps.Length - 1)];
+            Instantiate(powerUp, PowerUpSpawn, powerUp.transform.rotation);
+        }
+        else
+        {
+            GameObject powerUp = powerUps[Random.Range(0, powerUps.Length)];
+            Instantiate(powerUp, PowerUpSpawn, powerUp.transform.rotation);
+        }
     }
 
     //Power ups
