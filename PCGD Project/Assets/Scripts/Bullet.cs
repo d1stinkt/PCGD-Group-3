@@ -8,10 +8,14 @@ public class Bullet : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sr;
 
-    int colorID;
+    public int colorID;
 
     [SerializeField]
     Sprite rainbowSprite;
+    [SerializeField]
+    Sprite splatter;
+
+    //public GameObject splatter;
 
     private void Awake()
     {
@@ -40,7 +44,7 @@ public class Bullet : MonoBehaviour
                 break;
 
             case 3:
-                sr.color = new Color(0.5f, 0, 0, 1);
+                sr.color = new Color(0.5f, 0, 0.5f, 1);
                 break;
 
             case 4:
@@ -54,10 +58,16 @@ public class Bullet : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             int enemyColor = collision.gameObject.GetComponent<EnemyAI>().ID;
+            Vector3 spawnPos = transform.position;
+            Quaternion rotation = transform.rotation;
+
             if (colorID == enemyColor || colorID == 4)
             {
-                Destroy(gameObject);
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = 0f;
+                sr.sprite = splatter;
                 Destroy(collision.gameObject);
+                StartCoroutine(Cleaning());
             }
             else
             {
@@ -68,5 +78,11 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator Cleaning()
+    {
+        yield return new WaitForSeconds(35);
+        Destroy(gameObject);
     }
 }
