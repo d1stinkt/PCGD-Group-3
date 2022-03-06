@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     SpriteRenderer sr;
 
     public int colorID;
+    bool splatterForm;
 
     [SerializeField]
     Sprite rainbowSprite;
@@ -22,6 +23,7 @@ public class Bullet : MonoBehaviour
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
+        splatterForm = false;
     }
 
     void Start()
@@ -29,6 +31,55 @@ public class Bullet : MonoBehaviour
         rb.AddForce(gm.bulletForce * transform.up, ForceMode2D.Impulse);
         colorID = gm.ColorID;
         if (gm.rainbowBullet) { colorID = 4; }
+        ColorChange();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            if (!splatterForm)
+            {
+                int enemyColor = collision.gameObject.GetComponent<EnemyAI>().ID;
+                Vector3 spawnPos = transform.position;
+                Quaternion rotation = transform.rotation;
+
+                if (colorID == enemyColor)
+                {
+                    splatterForm = true;
+                    rb.velocity = Vector3.zero;
+                    rb.angularVelocity = 0f;
+                    sr.sprite = splatter;
+                    rb.isKinematic = true;
+                    Destroy(collision.gameObject);
+                    StartCoroutine(Cleaning());
+                }
+                else if (colorID == 4)
+                {
+                    colorID = enemyColor;
+                    ColorChange();
+                    splatterForm = true;
+                    Destroy(collision.gameObject);
+                    rb.velocity = Vector3.zero;
+                    rb.angularVelocity = 0f;
+                    sr.sprite = splatter;
+                    rb.isKinematic = true;
+                    StartCoroutine(Cleaning());
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
+        if (collision.tag == "GameAreaBorder")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void ColorChange()
+    {
         switch (colorID)
         {
             case 0:
@@ -50,33 +101,6 @@ public class Bullet : MonoBehaviour
             case 4:
                 sr.sprite = rainbowSprite;
                 break;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Enemy")
-        {
-            int enemyColor = collision.gameObject.GetComponent<EnemyAI>().ID;
-            Vector3 spawnPos = transform.position;
-            Quaternion rotation = transform.rotation;
-
-            if (colorID == enemyColor || colorID == 4)
-            {
-                rb.velocity = Vector3.zero;
-                rb.angularVelocity = 0f;
-                sr.sprite = splatter;
-                Destroy(collision.gameObject);
-                StartCoroutine(Cleaning());
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
-        if (collision.tag == "GameAreaBorder")
-        {
-            Destroy(gameObject);
         }
     }
 
