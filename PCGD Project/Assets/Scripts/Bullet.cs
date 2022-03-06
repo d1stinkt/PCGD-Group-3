@@ -21,34 +21,28 @@ public class Bullet : MonoBehaviour
     {
         rb.AddForce(gm.bulletForce * transform.up, ForceMode2D.Impulse);
         colorID = gm.ColorID;
-    }
-
-    private void Update()
-    {
-        if (!gm.rainbowBullet)
+        if (gm.rainbowBullet) { colorID = 4; }
+        switch (colorID)
         {
-            switch (colorID)
-            {
-                case 0:
-                    sr.color = Color.yellow;
-                    break;
+            case 0:
+                sr.color = Color.yellow;
+                break;
 
-                case 1:
-                    sr.color = Color.blue;
-                    break;
+            case 1:
+                sr.color = Color.blue;
+                break;
 
-                case 2:
-                    sr.color = new Color(0, 0.5f, 0, 1);
-                    break;
+            case 2:
+                sr.color = new Color(0, 0.5f, 0, 1);
+                break;
 
-                case 3:
-                    sr.color = new Color(0.5f, 0, 0, 1);
-                    break;
-            }
-        }
-        else
-        {
-            sr.color = Color.black;
+            case 3:
+                sr.color = new Color(0.5f, 0, 0, 1);
+                break;
+
+            case 4:
+                sr.color = Color.black;
+                break;
         }
     }
 
@@ -57,7 +51,7 @@ public class Bullet : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             int enemyColor = collision.gameObject.GetComponent<EnemyAI>().ID;
-            if (enemyColor == colorID || gm.rainbowBullet)
+            if (colorID == enemyColor || colorID == 4)
             {
                 Destroy(gameObject);
                 Destroy(collision.gameObject);
