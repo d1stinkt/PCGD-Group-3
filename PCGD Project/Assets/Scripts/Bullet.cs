@@ -10,6 +10,9 @@ public class Bullet : MonoBehaviour
 
     int colorID;
 
+    [SerializeField]
+    Sprite rainbowSprite;
+
     private void Awake()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -41,7 +44,7 @@ public class Bullet : MonoBehaviour
                 break;
 
             case 4:
-                sr.color = Color.black;
+                sr.sprite = rainbowSprite;
                 break;
         }
     }
