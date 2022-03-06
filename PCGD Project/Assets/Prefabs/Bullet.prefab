@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 265810663719298762}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6afb340fa6c5041a5c2309403a6428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorID: 0
   rainbowSprite: {fileID: 21300000, guid: b6dbf031bd6304e4f89abb1444246b2f, type: 3}
+  splatter: {fileID: 21300000, guid: f8b07d4959c981049b98ded0994705a9, type: 3}
 --- !u!70 &265810663719298762
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

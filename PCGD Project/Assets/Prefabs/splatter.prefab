@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1981213817307250105}
   - component: {fileID: 8188045560163288517}
+  - component: {fileID: 73016628622189281}
   m_Layer: 0
   m_Name: splatter
   m_TagString: Untagged
@@ -82,3 +83,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &73016628622189281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839588663654461081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f76acae212df0488404ab69b6f04a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splatter: {fileID: 21300000, guid: f8b07d4959c981049b98ded0994705a9, type: 3}
+  bullet: {fileID: 5922032141838926342, guid: 174ffa3592d83844bb53f7116602aaca, type: 3}

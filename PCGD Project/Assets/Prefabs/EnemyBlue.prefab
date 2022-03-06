@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c0823df3c62674ab049e0edd10fe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splatter: {fileID: 21300000, guid: f8b07d4959c981049b98ded0994705a9, type: 3}
   ID: 1
 --- !u!195 &-3493752921138546692
 NavMeshAgent:
