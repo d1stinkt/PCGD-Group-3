@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class AudioManager : MonoBehaviour
@@ -9,8 +10,17 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    [SerializeField] Slider volumeSlider;
+
     void Awake()
     {
+        if (!PlayerPrefs.HasKey("musicVolume"))
+        {
+            PlayerPrefs.SetFloat("musicVolume", 1);
+            LoadVolume();
+        }
+        else { LoadVolume(); }
+
         if (instance == null)
             instance = this;
         else
@@ -49,4 +59,18 @@ public class AudioManager : MonoBehaviour
         s.source.Pause();
     }
 
+    public void ChangeVolume()
+    {
+        AudioListener.volume = volumeSlider.value;
+    }
+
+    private void LoadVolume()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+    }
+
+    void SaveVolume()
+    {
+        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+    }
 }
