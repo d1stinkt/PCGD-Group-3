@@ -183,8 +183,8 @@ MonoBehaviour:
   m_text: 'Sneakers give you a greater movement speed for 5 seconds.
 
 
-    There
-    will be a decreasing bar displaying the duration.'
+    The duration
+    is shown on the screen.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5237e20e8533b494fb7f1c639bb7ab2a, type: 2}
   m_sharedMaterial: {fileID: -3340510143844688107, guid: 5237e20e8533b494fb7f1c639bb7ab2a, type: 2}
@@ -932,7 +932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: There is currently three different power ups to help you fight the onslaught.
+  m_text: There are currently three different power ups to help you fight the onslaught.
     They spawn randomly on the level. Armor stacks with both of the other power ups,
     but Rainbow Gun and Sneakers do not stack! If you have one active and take the
     other, it will go to waste.
@@ -1145,21 +1145,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Control the character with WASD-keys and aim by moving the mouse. Shoot
-    with mouse left-click. Press ESC during the game for pause.
+    with the left mouse button. Press ESC during the game to pause.
 
 
-    Goal of the
-    game is to survive as many waves of zombies as possible. You can see current
-    wave number and highscore on top left corner of the screen. There''s also a health
-    bar. You will endure 5 hits from zombies, before it''s game over. There is no
+    The goal
+    of the game is to survive as many waves of zombies as possible. You can see the
+    current wave number, highscore and health bar in the top left corner of the screen.
+    You can only endure 5 hits from zombies, before it''s game over. There are no
     healing items, so be careful!
 
 
-    The catch is, you shoot the same color of
-    bullets that the area you''re standing on! So when you are on the green, you
-    shoot green bullets etc. Zombies spawn in waves, always in bigger numbers, and
-    they also share the colors from different areas. You guessed it! Only matching
-    colored bullets kill matching colored zombies!'
+    Watch where you stand! The color of your
+    bullets is same as the area you''re standing on. So when you are on the green,
+    you shoot green bullets etc. Zombies spawn in waves, always in bigger numbers.
+    They also share the colors from different areas. You guessed it! The zombies
+    can only be killed with matching bullets!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5237e20e8533b494fb7f1c639bb7ab2a, type: 2}
   m_sharedMaterial: {fileID: -3340510143844688107, guid: 5237e20e8533b494fb7f1c639bb7ab2a, type: 2}
@@ -3706,11 +3706,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Armor gives you protection against hits from enemies.
+  m_text: 'Armor gives you protection against one hit from enemies.
 
 
-    You can only
-    have one armor at a time. It breaks after one hit from an enemy.'
+    You can
+    only have one armor at a time. It breaks after one hit from an enemy.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5237e20e8533b494fb7f1c639bb7ab2a, type: 2}
   m_sharedMaterial: {fileID: -3340510143844688107, guid: 5237e20e8533b494fb7f1c639bb7ab2a, type: 2}
@@ -5224,8 +5224,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Rainbow Gun gives you the ability to shoot rainbow bullets, that can kill
-    any enemy despite of it's color. \n\nIt lasts only 5 seconds, and there will
-    be a decreasing bar displaying the duration."
+    any enemy regardless of it's color. \n\nIt lasts only 5 seconds. The duration
+    is shown on the screen."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5237e20e8533b494fb7f1c639bb7ab2a, type: 2}
   m_sharedMaterial: {fileID: -3340510143844688107, guid: 5237e20e8533b494fb7f1c639bb7ab2a, type: 2}
