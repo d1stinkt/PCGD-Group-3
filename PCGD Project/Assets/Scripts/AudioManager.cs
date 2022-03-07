@@ -37,7 +37,6 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.loop = s.loop;
-
         }
     }
 
@@ -48,7 +47,6 @@ public class AudioManager : MonoBehaviour
         if (s == null)
             return;
         s.source.Play();
-        
     }
 
     public void Pause(string name)
@@ -62,6 +60,7 @@ public class AudioManager : MonoBehaviour
     public void ChangeVolume()
     {
         AudioListener.volume = volumeSlider.value;
+        SaveVolume();
     }
 
     private void LoadVolume()

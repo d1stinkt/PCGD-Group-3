@@ -9,13 +9,11 @@ public class Menu : MonoBehaviour
 {
     AudioManager AudioManager;
 
-    [SerializeField]
-    Text score;
+    [SerializeField] Text score;
 
     ScoreSystem scoreSystem;
 
-    [SerializeField]
-    int s;
+    [SerializeField] int s;
 
     StartGame startGame;
 
@@ -31,10 +29,7 @@ public class Menu : MonoBehaviour
     {
         AudioManager.Pause("Menu");
         startGame.LevelBegin();
-        
     }
-
-
 
     public void Quit()
     {
@@ -42,7 +37,6 @@ public class Menu : MonoBehaviour
 
         Application.Quit();
     }
-
 
     public void GetScore()
     {
