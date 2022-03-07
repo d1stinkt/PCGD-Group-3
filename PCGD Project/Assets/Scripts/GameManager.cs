@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
         highScore = scoreSystem.LoadScore();
-        highScoreTxt.text = "Highscore: " + highScore.ToString();
+        highScoreTxt.text = "HIGHSCORE: " + highScore.ToString();
         InvokeRepeating("SpawnPowerUp", 1f, 10f);
     }
 
