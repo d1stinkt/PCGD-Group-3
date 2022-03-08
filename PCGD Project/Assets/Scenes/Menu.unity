@@ -453,7 +453,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -137.7}
+  m_AnchoredPosition: {x: 0, y: -167.7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &67764190
@@ -1344,23 +1344,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffe9b6a9538db94a8a72389163fbb3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minWaitBetweenPlays: 1
+  maxWaitBetweenPlays: 5
+  waitTimeCountdown: -1
   sounds:
   - name: BulletNoise
     clip: {fileID: 8300000, guid: a883edde656a34d449ffa1065eb9be0b, type: 3}
     volume: 0.452
+    pitch: 1
     loop: 0
     paused: 0
     source: {fileID: 0}
   - name: Theme
     clip: {fileID: 8300000, guid: 9e97df6f9139c7541a22a1bb679f2a74, type: 3}
     volume: 0.436
+    pitch: 1
     loop: 1
     paused: 0
     source: {fileID: 0}
   - name: Menu
     clip: {fileID: 8300000, guid: 46d1834cf7e48544e8c679b0c9431d7d, type: 3}
     volume: 0.436
+    pitch: 1
     loop: 1
+    paused: 0
+    source: {fileID: 0}
+  - name: ZombieNoise
+    clip: {fileID: 8300000, guid: 6047a9b7e46466d499ab47dc0198ebe0, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    paused: 0
+    source: {fileID: 0}
+  - name: ZombieDeath
+    clip: {fileID: 8300000, guid: e432326e17c2aaf498efe73e753e8a54, type: 3}
+    volume: 0.2
+    pitch: 0.7
+    loop: 0
+    paused: 0
+    source: {fileID: 0}
+  - name: BouncerPain
+    clip: {fileID: 8300000, guid: c232c79374ca9c94da0c9b7160c1633f, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
     paused: 0
     source: {fileID: 0}
   volumeSlider: {fileID: 76998039}
@@ -2921,8 +2948,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.569595, y: -35.8}
-  m_SizeDelta: {x: 707.9285, y: 271.9578}
+  m_AnchoredPosition: {x: 0, y: -17.388}
+  m_SizeDelta: {x: 720.6078, y: 270.6231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1086930669
 MonoBehaviour:
@@ -2944,27 +2971,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ville Lehvonen - Project Lead, Programming
-
-
-    Arttu Niemi - Programming
-
-
-    Joonas
-    Alitalo - Programming, Audio
-
-
-    Suvi Orling - Game Graphics
-
-
-    Veera Maattanen
-    - Game Graphics
-
-
-    Paavo Auranen - Programming, Menu Graphics
-
-
-'
+  m_text: "SPLATTER GAMES\n\nVille Lehvonen - Project Lead, Programming\n\nArttu
+    Niemi - Programming\n\nJoonas Alitalo - Programming, Audio\n\nSuvi Orling - Game
+    Graphics\n\nVeera Maattanen - Game Graphics\n\nPaavo Auranen - Programming, Menu
+    Graphics\n\n3RD PARTY SOUNDS\n\nZombie noises and Bouncer's damage noise:\n \nMike
+    Koenig in SoundBible (CC BY 3.0)\n(Sounds have been edited)\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5237e20e8533b494fb7f1c639bb7ab2a, type: 2}
   m_sharedMaterial: {fileID: -3340510143844688107, guid: 5237e20e8533b494fb7f1c639bb7ab2a, type: 2}

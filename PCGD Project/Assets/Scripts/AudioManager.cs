@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
+    public float minWaitBetweenPlays = 1f;
+    public float maxWaitBetweenPlays = 5f;
+    public float waitTimeCountdown = -1f;
+
     public Sound[] sounds;
 
     public static AudioManager instance;
@@ -37,6 +41,8 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.loop = s.loop;
+            s.source.pitch = s.pitch;
+            
         }
     }
 
@@ -47,6 +53,28 @@ public class AudioManager : MonoBehaviour
         if (s == null)
             return;
         s.source.Play();
+    }
+
+    public void PlayZombieNoises(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+            return;
+
+
+
+        if (!s.source.isPlaying)
+
+            if (waitTimeCountdown < 0f)
+            {
+                
+                s.source.Play();
+                waitTimeCountdown = UnityEngine.Random.Range(minWaitBetweenPlays, maxWaitBetweenPlays);
+            }
+            else
+            {
+                waitTimeCountdown -= Time.deltaTime;
+            }
     }
 
     public void Pause(string name)

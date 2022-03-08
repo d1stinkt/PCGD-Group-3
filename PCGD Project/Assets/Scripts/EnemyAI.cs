@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-
+    AudioManager AudioManager;
     Transform player;
     NavMeshAgent agent;
     Rigidbody2D enemyRb;
@@ -14,6 +14,9 @@ public class EnemyAI : MonoBehaviour
  
     float rotationOffset = 270f;
     float scale = 1.2f;
+    public float minWaitBetweenPlays = 4f;
+    public float maxWaitBetweenPlays = 8f;
+    public float waitTimeCountdown = -1f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,7 @@ public class EnemyAI : MonoBehaviour
         agent.updateUpAxis = false;
         enemyRb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player").GetComponent<Transform>();
+        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         transform.localScale = new Vector3(scale, scale, scale);
 
     }
@@ -32,6 +36,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(player.position);
         Rotate();
+        AudioManager.PlayZombieNoises("ZombieNoise");
     }
 
     void Rotate()

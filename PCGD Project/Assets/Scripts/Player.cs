@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public Camera mainCamera;
     public HealthBar healthBar;
     public GameObject armorIcon;
+    AudioManager AudioManager;
 
     private Vector2 moveDirection;
     private Vector2 mousePosition;
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         GameIsPaused = Global.GamePaused;
     }
 
@@ -102,6 +104,7 @@ public class Player : MonoBehaviour
 
         else if (collision.gameObject.tag == "Enemy" && !gm.armor)
         {
+            
             Vector2 direction = transform.position - collision.transform.position;
             direction.Normalize();
             rb.AddForce(direction * bounce, ForceMode2D.Impulse);
@@ -157,6 +160,7 @@ public class Player : MonoBehaviour
 
     void LoseHealth(int damage)
     {
+        AudioManager.Play("BouncerPain");
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }

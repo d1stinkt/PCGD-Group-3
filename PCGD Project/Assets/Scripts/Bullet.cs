@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    AudioManager AudioManager;
     GameManager gm;
     Rigidbody2D rb;
     SpriteRenderer sr;
@@ -20,6 +21,7 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
+        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
@@ -52,6 +54,7 @@ public class Bullet : MonoBehaviour
                     sr.sprite = splatter;
                     rb.isKinematic = true;
                     Destroy(collision.gameObject);
+                    AudioManager.Play("ZombieDeath");
                     StartCoroutine(Cleaning());
                 }
                 else if (colorID == 4)
@@ -60,6 +63,7 @@ public class Bullet : MonoBehaviour
                     ColorChange();
                     splatterForm = true;
                     Destroy(collision.gameObject);
+                    AudioManager.Play("ZombieDeath");
                     rb.velocity = Vector3.zero;
                     rb.angularVelocity = 0f;
                     sr.sprite = splatter;

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameOverScreen : MonoBehaviour
 {
     AudioManager AudioManager;
-
+    
     public Text scoreText;
 
     public void Start()
