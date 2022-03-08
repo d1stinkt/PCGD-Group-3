@@ -1350,8 +1350,8 @@ MonoBehaviour:
   sounds:
   - name: BulletNoise
     clip: {fileID: 8300000, guid: a883edde656a34d449ffa1065eb9be0b, type: 3}
-    volume: 0.452
-    pitch: 1
+    volume: 0.3
+    pitch: 1.5
     loop: 0
     paused: 0
     source: {fileID: 0}
