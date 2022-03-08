@@ -14,6 +14,8 @@ public class Shooting : MonoBehaviour
     Player player;
     float timer = 0f;
 
+    public Animator TopAnimator;
+
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
@@ -32,6 +34,7 @@ public class Shooting : MonoBehaviour
                 AudioManager.Play("BulletNoise");
                 timer = 0f;
                 Instantiate(bullet, shootPoint.position, shootPoint.rotation);
+                TopAnimator.Play("PlayerShoot");
                 
             }        
         }
