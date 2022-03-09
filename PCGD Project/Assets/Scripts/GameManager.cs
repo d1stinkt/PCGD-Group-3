@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     Transform player, centerPoint;
-
+    
     public int ColorID = 0;
     float[] location = { 0, 0 };
 
@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public GameOverScreen GameOverScreen;
     public PauseMenuScreen PauseMenuScreen;
 
+    private bool GameIsPaused;
     public bool rainbowBullet = false;
     public bool armor = false;
     public bool speedUp = false;
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        GameIsPaused = Global.GamePaused;
         Application.targetFrameRate = 60;
         scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
         highScore = scoreSystem.LoadScore();
@@ -88,6 +90,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        GameIsPaused = true;
         GameOverScreen.ShowMenu(score);
 
         if (score > highScore)

@@ -55,11 +55,9 @@ public class Bullet : MonoBehaviour
                     rb.angularVelocity = 0f;
                     sr.sprite = splatter;
                     rb.isKinematic = true;
-                    Destroy(collision.gameObject);
-                    while(GameIsPaused == false)
-                    {
-                        AudioManager.Play("ZombieDeath");
-                    }
+                    Destroy(collision.gameObject);  
+                    
+                    AudioManager.Play("ZombieDeath");                    
                     
                     StartCoroutine(Cleaning());
                 }
@@ -68,11 +66,9 @@ public class Bullet : MonoBehaviour
                     colorID = enemyColor;
                     ColorChange();
                     splatterForm = true;
-                    Destroy(collision.gameObject);
-                    while(GameIsPaused == false)
-                    {
-                        AudioManager.Play("ZombieDeath");
-                    }
+                    Destroy(collision.gameObject);                   
+                    
+                    AudioManager.Play("ZombieDeath");                    
                     
                     rb.velocity = Vector3.zero;
                     rb.angularVelocity = 0f;

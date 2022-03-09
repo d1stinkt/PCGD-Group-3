@@ -38,10 +38,9 @@ public class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(player.position);
         Rotate();
-        while(GameIsPaused == false)
-        {
-            AudioManager.PlayZombieNoises("ZombieNoise");
-        }
+        
+        AudioManager.PlayZombieNoises("ZombieNoise");
+        
         
     }
 
