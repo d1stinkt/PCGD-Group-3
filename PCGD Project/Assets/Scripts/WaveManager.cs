@@ -24,6 +24,7 @@ public class WaveManager : MonoBehaviour
     GameManager gm;
     GameObject survivedText;
     WaveSurvivedText waveSurvivedText;
+    AudioManager AudioManager;
 
     [System.Serializable]
     public class Wave
@@ -40,6 +41,7 @@ public class WaveManager : MonoBehaviour
         survivedText = GameObject.Find("WaveSurvived");
         waveSurvivedText = survivedText.GetComponent<WaveSurvivedText>();
         survivedText.SetActive(false);
+        AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
 
@@ -147,8 +149,9 @@ public class WaveManager : MonoBehaviour
     IEnumerator WaveSurvived()
     {
         survivedText.SetActive(true);
+        AudioManager.Play("WaveSurvived");
         //waveSurvivedText.TextFade();
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
         survivedText.SetActive(false);
     }
 

@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
 
     public int colorID;
     bool splatterForm;
+    private bool GameIsPaused;
 
     [SerializeField]
     Sprite rainbowSprite;
@@ -26,6 +27,7 @@ public class Bullet : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         splatterForm = false;
+        GameIsPaused = Global.GamePaused;
     }
 
     void Start()
@@ -53,8 +55,10 @@ public class Bullet : MonoBehaviour
                     rb.angularVelocity = 0f;
                     sr.sprite = splatter;
                     rb.isKinematic = true;
-                    Destroy(collision.gameObject);
-                    AudioManager.Play("ZombieDeath");
+                    Destroy(collision.gameObject);  
+                    
+                    AudioManager.Play("ZombieDeath");                    
+                    
                     StartCoroutine(Cleaning());
                 }
                 else if (colorID == 4)
@@ -62,8 +66,10 @@ public class Bullet : MonoBehaviour
                     colorID = enemyColor;
                     ColorChange();
                     splatterForm = true;
-                    Destroy(collision.gameObject);
-                    AudioManager.Play("ZombieDeath");
+                    Destroy(collision.gameObject);                   
+                    
+                    AudioManager.Play("ZombieDeath");                    
+                    
                     rb.velocity = Vector3.zero;
                     rb.angularVelocity = 0f;
                     sr.sprite = splatter;

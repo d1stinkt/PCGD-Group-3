@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
+
+
     AudioManager AudioManager;
     [SerializeField] StartGame startGame;
     
     public Text scoreText;
+    public float fadeSpeed = 1.5f;
 
     public void Start()
     {
@@ -32,7 +35,6 @@ public class GameOverScreen : MonoBehaviour
     {
         startGame.BackToMenu();
         AudioManager.EnableMenu();
-        AudioManager.Pause("Theme");
     }
 
 }

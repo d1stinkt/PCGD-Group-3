@@ -8,8 +8,10 @@ public class PauseMenuScreen : MonoBehaviour
 {
     public Text scorePauseText;
     private bool GameIsPaused;
+    public float fadeSpeed = 1.5f;
 
     AudioManager AudioManager;
+
     [SerializeField] StartGame startGame;
 
     private void Start()
@@ -31,6 +33,7 @@ public class PauseMenuScreen : MonoBehaviour
 
     public void ShowPauseMenu(int points)
     {
+        GameIsPaused = true;
         gameObject.SetActive(true);
         scorePauseText.text = "WAVE: " + points.ToString();
     
@@ -45,9 +48,11 @@ public class PauseMenuScreen : MonoBehaviour
 
     public void MainMenuButton()
     {
-        Time.timeScale = 1f;
+        
+        GameIsPaused = true;
+        StartCoroutine(AudioManager.FadeIn("Menu", fadeSpeed));
         startGame.BackToMenu();
         AudioManager.EnableMenu();
-        AudioManager.Pause("Theme");
+        
     }
 }

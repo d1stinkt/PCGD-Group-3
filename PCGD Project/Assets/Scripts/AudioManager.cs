@@ -12,6 +12,8 @@ public class AudioManager : MonoBehaviour
     public float maxWaitBetweenPlays = 5f;
     public float waitTimeCountdown = -1f;
 
+    private bool GameIsPaused;
+
     public Sound[] sounds;
 
     public static AudioManager instance;
@@ -27,6 +29,8 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
+        GameIsPaused = Global.GamePaused;
+
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
         if(firstPlayInt == 0)
@@ -93,19 +97,58 @@ public class AudioManager : MonoBehaviour
             return;
 
 
+        if(GameIsPaused == false)
+        {
+            if (!s.source.isPlaying)
 
-        if (!s.source.isPlaying)
+                if (waitTimeCountdown < 0f)
+                {
 
-            if (waitTimeCountdown < 0f)
-            {
-                
-                s.source.Play();
-                waitTimeCountdown = UnityEngine.Random.Range(minWaitBetweenPlays, maxWaitBetweenPlays);
-            }
-            else
-            {
-                waitTimeCountdown -= Time.deltaTime;
-            }
+                    s.source.Play();
+                    waitTimeCountdown = UnityEngine.Random.Range(minWaitBetweenPlays, maxWaitBetweenPlays);
+                }
+                else
+                {
+                    waitTimeCountdown -= Time.deltaTime;
+                }
+        }
+        
+    }
+
+    public IEnumerator FadeOut(string name, float fadeSpeed)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        
+
+        float startVolume = s.source.volume;
+        
+
+        while (s.source.volume > 0)
+        {
+            s.source.volume -= startVolume * Time.fixedDeltaTime / fadeSpeed;
+            yield return null;
+        }
+
+        s.source.Stop();
+        s.source.volume = startVolume;
+       
+    }
+
+    public IEnumerator FadeIn(string name, float fadeSpeed)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        
+        s.source.volume = 0f;
+        s.source.Play();
+        
+        while (s.source.volume < 0.5f)
+        {
+            s.source.volume += Time.fixedDeltaTime / fadeSpeed;
+            yield return null;
+        }
+
+        s.source.volume = 0.5f;
     }
 
     public void Pause(string name)
