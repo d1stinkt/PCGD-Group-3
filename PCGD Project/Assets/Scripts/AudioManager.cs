@@ -122,10 +122,10 @@ public class AudioManager : MonoBehaviour
         volumeFloat = PlayerPrefs.GetFloat(volumePref);
 
         AudioListener.volume = volumeFloat;
-        //for (int i = 0; i < sounds.Length; i++)
-        //{
-        //    sounds[i].volume = volumeFloat;
-        //}
+        /*for (int i = 0; i < sounds.Length; i++)
+        {
+            sounds[i].volume = volumeFloat;
+        }*/
     }
 
     void OnApplicationFocus(bool inFocus)
