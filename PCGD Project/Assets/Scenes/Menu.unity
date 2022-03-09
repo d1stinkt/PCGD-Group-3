@@ -1410,6 +1410,13 @@ MonoBehaviour:
     loop: 0
     paused: 0
     source: {fileID: 0}
+  - name: ShieldBreak
+    clip: {fileID: 8300000, guid: 11f2eaa65aa1097489bebf837e46e98a, type: 3}
+    volume: 0.3
+    pitch: 0.35
+    loop: 0
+    paused: 0
+    source: {fileID: 0}
   volumeSlider: {fileID: 76998039}
 --- !u!4 &292376838
 Transform:

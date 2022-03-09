@@ -154,6 +154,7 @@ public class Player : MonoBehaviour
     IEnumerator ArmorBreak()
     {
         armorIcon.SetActive(false);
+        AudioManager.Play("ShieldBreak");
         yield return new WaitForSeconds(1.0f);
         gm.armor = false;
     }
