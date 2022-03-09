@@ -14,16 +14,35 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    static readonly string FirstPlay = "FirstPlay";
+    static readonly string volumePref = "VolumePref";
+
+    int firstPlayInt;
+    float volumeFloat;
+
     [SerializeField] Slider volumeSlider;
+
+    void Start()
+    {
+        firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
+
+        if(firstPlayInt == 0)
+        {
+            volumeFloat = 0.75f;
+            volumeSlider.value = volumeFloat;
+            PlayerPrefs.SetFloat(volumePref, volumeFloat);
+            PlayerPrefs.SetInt(FirstPlay, -1);
+        }
+        else
+        {
+            volumeFloat = PlayerPrefs.GetFloat(volumePref);
+            volumeSlider.value = volumeFloat;
+        }
+    }
 
     void Awake()
     {
-        if (!PlayerPrefs.HasKey("musicVolume"))
-        {
-            PlayerPrefs.SetFloat("musicVolume", 1);
-            LoadVolume();
-        }
-        else { LoadVolume(); }
+        ContinueSettings();
 
         if (instance == null)
             instance = this;
@@ -41,8 +60,7 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.volume = s.volume;
             s.source.loop = s.loop;
-            s.source.pitch = s.pitch;
-            
+            s.source.pitch = s.pitch;         
         }
     }
 
@@ -85,19 +103,36 @@ public class AudioManager : MonoBehaviour
         s.source.Pause();
     }
 
-    public void ChangeVolume()
+    void SaveVolumeSettings()
+    {
+        PlayerPrefs.SetFloat(volumePref, volumeSlider.value);
+    }
+
+    public void UpdateSound()
     {
         AudioListener.volume = volumeSlider.value;
-        SaveVolume();
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            sounds[i].volume = volumeSlider.value;
+        }
     }
 
-    private void LoadVolume()
+    void ContinueSettings()
     {
-        volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
+        volumeFloat = PlayerPrefs.GetFloat(volumePref);
+
+        AudioListener.volume = volumeFloat;
+        /*for (int i = 0; i < sounds.Length; i++)
+        {
+            sounds[i].volume = volumeFloat;
+        }*/
     }
 
-    void SaveVolume()
+    void OnApplicationFocus(bool inFocus)
     {
-        PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
+        if (!inFocus)
+        {
+            SaveVolumeSettings();
+        }
     }
 }
