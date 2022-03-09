@@ -1411,6 +1411,7 @@ MonoBehaviour:
     paused: 0
     source: {fileID: 0}
   volumeSlider: {fileID: 76998039}
+  menu: {fileID: 1830848961}
 --- !u!4 &292376838
 Transform:
   m_ObjectHideFlags: 0
@@ -6373,6 +6374,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3823620340997896074, guid: dcd6687ed56c9ea489e18d41d9448aa0, type: 3}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 1830848964}
     - target: {fileID: 3823620340997896075, guid: dcd6687ed56c9ea489e18d41d9448aa0, type: 3}
       propertyPath: m_RootOrder
       value: 4

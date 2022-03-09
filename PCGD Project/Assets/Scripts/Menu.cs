@@ -17,6 +17,8 @@ public class Menu : MonoBehaviour
 
     StartGame startGame;
 
+    public static Menu instance;
+
     private void Start()
     {
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -25,10 +27,24 @@ public class Menu : MonoBehaviour
         AudioManager.Play("Menu");   
     }
 
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void Play()
     {
         AudioManager.Pause("Menu");
         startGame.LevelBegin();
+        Disable();
     }
 
     public void Quit()
@@ -46,5 +62,16 @@ public class Menu : MonoBehaviour
     public void SaveScore()
     {
         scoreSystem.SaveScore(s);
+    }
+
+    public void Disable()
+    {
+        StartCoroutine(DisableMenu());
+    }
+
+    IEnumerator DisableMenu()
+    {
+        yield return new WaitForSeconds(1.5f);
+        gameObject.SetActive(false);
     }
 }
