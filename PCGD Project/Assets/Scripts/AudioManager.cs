@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     public float minWaitBetweenPlays = 1f;
     public float maxWaitBetweenPlays = 5f;
     public float waitTimeCountdown = -1f;
+    
 
     public Sound[] sounds;
 
@@ -106,6 +107,42 @@ public class AudioManager : MonoBehaviour
             {
                 waitTimeCountdown -= Time.deltaTime;
             }
+    }
+
+    public IEnumerator FadeOut(string name, float fadeSpeed)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        
+
+        float startVolume = s.source.volume;
+        float adjustedVolume = startVolume;
+
+        while (adjustedVolume > 0)
+        {
+            adjustedVolume -= startVolume * Time.fixedDeltaTime / fadeSpeed;
+            yield return null;
+        }
+
+        s.source.Stop();
+        s.source.volume = startVolume;
+       
+    }
+
+    public IEnumerator FadeIn(string name, float fadeSpeed)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        float adjustedVolume = s.source.volume;
+        adjustedVolume = 0f;
+        s.source.Play();
+        
+        while (adjustedVolume < 0.5f)
+        {
+            adjustedVolume += Time.deltaTime / fadeSpeed;
+            yield return null;
+        }
+
+        s.source.volume = 0.5F;
     }
 
     public void Pause(string name)

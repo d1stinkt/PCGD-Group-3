@@ -11,6 +11,8 @@ public class StartGame : MonoBehaviour
 
     public static StartGame startGame;
 
+    public float fadeSpeed = 1.5f;
+
     public void Start()
     {
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -30,29 +32,35 @@ public class StartGame : MonoBehaviour
 
     public void LevelBegin()
     {
+        StartCoroutine(AudioManager.FadeOut("Menu", fadeSpeed));
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        
     }
 
     public void BackToMenu()
     {
+        StartCoroutine(AudioManager.FadeOut("Theme", fadeSpeed));
         StartCoroutine(LoadMenu(SceneManager.GetActiveScene().buildIndex - 1));
+        
+
     }
 
     IEnumerator LoadLevel(int index)
     {
+        StartCoroutine(AudioManager.FadeIn("Theme", fadeSpeed));
         animator.SetTrigger("StartLevel");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(index);
-        AudioManager.Play("Theme");
         animator.SetTrigger("Stop");
     }
 
     IEnumerator LoadMenu(int index)
     {
+        
         animator.SetTrigger("StartLevel");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.5f);      
         SceneManager.LoadScene(index);
-        AudioManager.Play("Menu");
+        StartCoroutine(AudioManager.FadeIn("Menu", fadeSpeed));
         animator.SetTrigger("Stop");
     }
 }

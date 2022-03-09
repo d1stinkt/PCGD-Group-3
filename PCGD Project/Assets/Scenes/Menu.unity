@@ -1345,6 +1345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 292376838}
   - component: {fileID: 292376837}
+  - component: {fileID: 292376839}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1377,14 +1378,14 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Theme
     clip: {fileID: 8300000, guid: 9e97df6f9139c7541a22a1bb679f2a74, type: 3}
-    volume: 0.436
+    volume: 0.5
     pitch: 1
     loop: 1
     paused: 0
     source: {fileID: 0}
   - name: Menu
     clip: {fileID: 8300000, guid: 46d1834cf7e48544e8c679b0c9431d7d, type: 3}
-    volume: 0.436
+    volume: 0.5
     pitch: 1
     loop: 1
     paused: 0
@@ -1417,6 +1418,13 @@ MonoBehaviour:
     loop: 0
     paused: 0
     source: {fileID: 0}
+  - name: WaveSurvived
+    clip: {fileID: 8300000, guid: 5f21b95411b3ec04f8aef3070e160cdf, type: 3}
+    volume: 0.35
+    pitch: 1
+    loop: 0
+    paused: 0
+    source: {fileID: 0}
   volumeSlider: {fileID: 76998039}
   menu: {fileID: 1830848961}
 --- !u!4 &292376838
@@ -1433,6 +1441,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &292376839
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292376836}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cbac6c0fb03f994eaef8b2f53b455f3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &434028378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2301,6 +2328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 712167445}
+  fadeSpeed: 0.25
 --- !u!1 &717877269
 GameObject:
   m_ObjectHideFlags: 0
@@ -5443,6 +5471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 0}
+  fadeSpeed: 0.25
   s: 0
   startGame: {fileID: 712167447}
 --- !u!114 &1830848967

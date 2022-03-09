@@ -17,10 +17,12 @@ public class EnemyAI : MonoBehaviour
     public float minWaitBetweenPlays = 4f;
     public float maxWaitBetweenPlays = 8f;
     public float waitTimeCountdown = -1f;
+    private bool GameIsPaused;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameIsPaused = Global.GamePaused;
         agent = GetComponent<NavMeshAgent>();
         //agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -36,7 +38,11 @@ public class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(player.position);
         Rotate();
-        AudioManager.PlayZombieNoises("ZombieNoise");
+        while(GameIsPaused == false)
+        {
+            AudioManager.PlayZombieNoises("ZombieNoise");
+        }
+        
     }
 
     void Rotate()

@@ -13,6 +13,8 @@ public class Menu : MonoBehaviour
 
     ScoreSystem scoreSystem;
 
+    public float fadeSpeed = 2f;
+
     [SerializeField] int s;
 
     [SerializeField] StartGame startGame;
@@ -23,7 +25,7 @@ public class Menu : MonoBehaviour
     {
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
-        AudioManager.Play("Menu");   
+        StartCoroutine(AudioManager.FadeIn("Menu", fadeSpeed));
     }
 
     void Awake()
@@ -41,7 +43,7 @@ public class Menu : MonoBehaviour
 
     public void Play()
     {
-        AudioManager.Pause("Menu");
+        
         startGame.LevelBegin();
         Disable();
     }

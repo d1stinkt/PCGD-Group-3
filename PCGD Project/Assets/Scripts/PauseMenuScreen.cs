@@ -8,6 +8,7 @@ public class PauseMenuScreen : MonoBehaviour
 {
     public Text scorePauseText;
     private bool GameIsPaused;
+    public float fadeSpeed = 0.05f;
 
     AudioManager AudioManager;
     [SerializeField] StartGame startGame;
@@ -45,9 +46,10 @@ public class PauseMenuScreen : MonoBehaviour
 
     public void MainMenuButton()
     {
-        Time.timeScale = 1f;
+        GameIsPaused = true;
         startGame.BackToMenu();
         AudioManager.EnableMenu();
-        AudioManager.Pause("Theme");
+        Time.timeScale = 1f;
+        
     }
 }
