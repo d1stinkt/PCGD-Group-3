@@ -16,6 +16,7 @@ public class PauseMenuScreen : MonoBehaviour
     {
         GameIsPaused = Global.GamePaused;
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        startGame = GameObject.Find("GameBegin").GetComponent<StartGame>();
     }
 
     private void Update()

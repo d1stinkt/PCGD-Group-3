@@ -14,6 +14,7 @@ public class GameOverScreen : MonoBehaviour
     public void Start()
     {
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        startGame = GameObject.Find("GameBegin").GetComponent<StartGame>();
     }
 
     public void ShowMenu(int points)

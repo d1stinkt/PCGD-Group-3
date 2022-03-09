@@ -15,7 +15,7 @@ public class Menu : MonoBehaviour
 
     [SerializeField] int s;
 
-    StartGame startGame;
+    [SerializeField] StartGame startGame;
 
     public static Menu instance;
 
@@ -23,7 +23,6 @@ public class Menu : MonoBehaviour
     {
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
-        startGame = GameObject.Find("GameBegin").GetComponent<StartGame>();
         AudioManager.Play("Menu");   
     }
 
