@@ -1,7 +1,9 @@
 using UnityEngine.Audio;
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class AudioManager : MonoBehaviour
@@ -21,6 +23,7 @@ public class AudioManager : MonoBehaviour
     float volumeFloat;
 
     [SerializeField] Slider volumeSlider;
+    [SerializeField] GameObject menu;
 
     void Start()
     {
@@ -42,7 +45,17 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        ContinueSettings();
+        Scene scene = SceneManager.GetActiveScene();
+
+        if (scene.name == "Menu")
+        {
+            menu.SetActive(true);
+        }
+        else 
+        {
+            ContinueSettings();
+            menu.SetActive(false); 
+        }
 
         if (instance == null)
             instance = this;
@@ -111,21 +124,12 @@ public class AudioManager : MonoBehaviour
     public void UpdateSound()
     {
         AudioListener.volume = volumeSlider.value;
-        for (int i = 0; i < sounds.Length; i++)
-        {
-            sounds[i].volume = volumeSlider.value;
-        }
     }
 
     void ContinueSettings()
     {
         volumeFloat = PlayerPrefs.GetFloat(volumePref);
-
         AudioListener.volume = volumeFloat;
-        /*for (int i = 0; i < sounds.Length; i++)
-        {
-            sounds[i].volume = volumeFloat;
-        }*/
     }
 
     void OnApplicationFocus(bool inFocus)
@@ -134,5 +138,16 @@ public class AudioManager : MonoBehaviour
         {
             SaveVolumeSettings();
         }
+    }
+
+    public void EnableMenu()
+    {
+        StartCoroutine(ActivateMenu());
+    }
+
+    IEnumerator ActivateMenu()
+    {
+        yield return new WaitForSeconds(1.4f);
+        menu.SetActive(true);
     }
 }

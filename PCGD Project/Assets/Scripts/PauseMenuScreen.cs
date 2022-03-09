@@ -10,11 +10,13 @@ public class PauseMenuScreen : MonoBehaviour
     private bool GameIsPaused;
 
     AudioManager AudioManager;
+    [SerializeField] StartGame startGame;
 
     private void Start()
     {
         GameIsPaused = Global.GamePaused;
         AudioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        startGame = GameObject.Find("GameBegin").GetComponent<StartGame>();
     }
 
     private void Update()
@@ -39,13 +41,13 @@ public class PauseMenuScreen : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         gameObject.SetActive(false);
-        
     }
 
     public void MainMenuButton()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        startGame.BackToMenu();
+        AudioManager.EnableMenu();
         AudioManager.Pause("Theme");
     }
 }

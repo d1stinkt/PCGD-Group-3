@@ -48,8 +48,6 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("SpawnPowerUp", 1f, 10f);
     }
 
-
-
     void Update()
     {
         centerPoint.LookAt(player);
